@@ -1,0 +1,16 @@
+{
+    "name": "yaroslav/my-laravel",
+    "description": "des",
+    "type": "project",
+    "license": "Frz",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Config\\": "config/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "phpmailer/phpmailer": "dev-master"
+    }
+}

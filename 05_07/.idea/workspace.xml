@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0755ee37-ecb6-4672-902f-f1ea912c975c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/config/App.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/public/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/about.tpl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/contact.tpl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/home.tpl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/layouts/main/footer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/layouts/main/head.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/layouts/main/header.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/layouts/main/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/layouts/main/menu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/src/Controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/src/Controllers/PageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/src/Views/Render.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2BZlv60LQeC9xjD55YeSy4zUCTU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Programming/Projects/PhpStorm/05_07",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0755ee37-ecb6-4672-902f-f1ea912c975c" name="Changes" comment="" />
+      <created>1657121715895</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1657121715895</updated>
+      <workItem from="1657121717061" duration="1057000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
