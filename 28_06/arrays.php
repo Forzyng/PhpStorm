@@ -9,6 +9,7 @@
 <footer>
     <pre>
 <?php
+echo "<p>" . __DIR__ . " " . __FILE__ . " " . __LINE__ ."</p>";
 echo "<p>login: " . $_GET['login'] . "</p>";
 print_r($_GET);
 print_r($_POST);
