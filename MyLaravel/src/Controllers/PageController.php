@@ -10,7 +10,5 @@ class PageController
         Render::view('about');
     }
 
-    public function contact(){
-        Render::view('contact');
-    }
+
 }

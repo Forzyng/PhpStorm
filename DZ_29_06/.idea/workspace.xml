@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="74e78987-4eaa-42a9-9f90-9625861c50ea" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../DZ_28_06/.idea/DZ_28_06.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DZ_28_06/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DZ_28_06/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DZ_28_06/Task 3/ElementsOfMenu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DZ_28_06/Task 3/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DZ_28_06/Task 4/RandHex.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DZ_28_06/Task 4/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DZ_28_06/Task 5/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/DZ_29_06.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/config/Email.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/public/css/site.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/public/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/public/css/styleFAQ.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/public/testPDO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/mail/form.tpl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/src/Controllers/ContactController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/src/Controllers/MailController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/src/Database/DB.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/src/Database/sql/create_user.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/src/Helpers/Mail/Templates/Template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/src/Helpers/Mail/To.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyLaravel/src/Views/Forms/Input.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/.idea/lara.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Console/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Exceptions/Handler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/EntityController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Middleware/PreventRequestsDuringMaintenance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Middleware/TrimStrings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Middleware/TrustHosts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Middleware/TrustProxies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Requests/Entity/StoreEntityRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Requests/StoreStudentRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Requests/UpdateStudentRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Models/Entity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Models/Student.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Models/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Policies/StudentPolicy.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/artisan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/artisan.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/bootstrap/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/bootstrap/cache/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/broadcasting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/cache.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/cors.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/filesystems.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/hashing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/logging.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/queue.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/sanctum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/services.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/config/view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/factories/StudentFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/factories/UserFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/migrations/2022_07_21_152452_create_table_entities.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/migrations/2022_07_21_154523_change_table_entities.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/migrations/2022_07_21_164052_create_students_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/seeders/StudentSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/lang/en/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/lang/en/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/lang/en/passwords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/lang/en/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/public/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/public/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/public/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/public/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/public/mix-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/js/components/ExampleComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/sass/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/sass/app.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/auth/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/auth/register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/auth/verify.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/entity/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/home.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/pages/about.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/welcome.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/routes/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/routes/channels.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/routes/console.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/storage/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/storage/app/public/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/storage/framework/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/storage/framework/cache/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/storage/framework/cache/data/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/storage/framework/sessions/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/storage/framework/testing/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/storage/framework/views/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/storage/logs/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/tests/CreatesApplication.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/tests/Feature/ExampleTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/tests/TestCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/tests/Unit/ExampleTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/vite.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05_07/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../05_07/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyLaravel/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyLaravel/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyLaravel/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../MyLaravel/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyLaravel/resources/views/contact.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/contact.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyLaravel/resources/views/forms/avatar.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/forms/avatar.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyLaravel/resources/views/layouts/main/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/layouts/main/head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyLaravel/resources/views/layouts/main/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/layouts/main/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyLaravel/resources/views/layouts/main/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/../MyLaravel/resources/views/layouts/main/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyLaravel/src/Controllers/AvatarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../MyLaravel/src/Controllers/AvatarController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyLaravel/src/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../MyLaravel/src/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyLaravel/src/Controllers/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../MyLaravel/src/Controllers/PageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyLaravel/src/Views/Render.php" beforeDir="false" afterPath="$PROJECT_DIR$/../MyLaravel/src/Views/Render.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1" />
+  <component name="ProjectId" id="2CJRE00aGbY4aYRlrb7TvBwOiu8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Programming/Projects/PhpStorm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="74e78987-4eaa-42a9-9f90-9625861c50ea" name="Changes" comment="" />
+      <created>1658518585444</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658518585444</updated>
+      <workItem from="1658518586644" duration="1609000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

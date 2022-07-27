@@ -1,4 +1,4 @@
-<header><?=Config\App::$headerTitle?></header>
+<header>
 <?php
 if(isset($varBug['header']['pageName'])){
     echo "<h2>" . $varBug['header']['pageName'] . "</h2>";
@@ -6,3 +6,5 @@ if(isset($varBug['header']['pageName'])){
 ?>
 <?php
 require_once ($layoutDir . "/menu.php");
+?>
+</header>

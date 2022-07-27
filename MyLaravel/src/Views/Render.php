@@ -17,7 +17,7 @@ class Render
 
         require_once ($includeDir . $pageName . ".tpl.php");
 
-        require_once ($layoutDir . "/footer.php");
+        // require_once ($layoutDir . "/footer.php");
 
         // echo "Папка с шаблонами: " . App::$layoutDir;
     }

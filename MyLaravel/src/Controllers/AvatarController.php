@@ -11,6 +11,6 @@ class AvatarController
     }
 
     public function store(){
-
+        var_dump($_FILES);
     }
 }

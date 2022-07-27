@@ -8,11 +8,11 @@ class HomeController
 {
     public function index() {
        /* echo "Work";*/
-        $varBug['names'] = [
+       /* $varBug['names'] = [
             "Artem", "Andrei", "Billy"
         ];
-        $varBug['header']['pageName'] = "Main Page";
-        Render::view("home", $varBug);
+        $varBug['header']['pageName'] = "Main Page";*/
+        Render::view("home");
     }
 
 }
