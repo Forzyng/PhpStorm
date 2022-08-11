@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d432a5d7-3ce4-404c-a5e3-3993abf8ffc0" name="Changes" comment="Begin and other projects">
+      <change afterPath="$PROJECT_DIR$/../MyRent/.idea/MyRent.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Console/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Exceptions/Handler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Controllers/Api/NewPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Controllers/Api/UserPostController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Middleware/PreventRequestsDuringMaintenance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Middleware/TrimStrings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Middleware/TrustHosts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Middleware/TrustProxies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Models/Post.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Models/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Notifications/ResetPasswordNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/artisan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/artisan.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/bootstrap/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/bootstrap/cache/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/broadcasting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/cache.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/cors.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/filesystems.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/hashing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/jwt.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/logging.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/queue.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/sanctum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/services.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/config/voyager.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/factories/UserFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/migrations/2016_01_01_000000_create_pages_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/migrations/2016_01_01_000000_create_posts_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/migrations/2016_02_15_204651_create_categories_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/migrations/2017_04_11_000000_alter_post_nullable_fields_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/migrations/2022_08_08_153507_add_columns_to_users.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/CategoriesTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/DataRowsTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/DataTypesTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/MenuItemsTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/MenusTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/PagesTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/PermissionRoleTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/PermissionsTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/PostsTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/RolesTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/SettingsTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/TranslationsTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/UsersTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/VoyagerDatabaseSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/database/seeders/VoyagerDummyDatabaseSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/lang/en/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/lang/en/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/lang/en/passwords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/lang/en/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/camera.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/carousel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/elements.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/flexslider.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/form.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/inner.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/rateit.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/skeleton.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/superfish.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/css/touchTouch.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/fonts/fontawesome-webfont.eot@" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/124x78_img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/124x78_img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/124x78_img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/124x78_img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/124x78_img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/124x78_img6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/170x120_img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/183x171-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/183x171-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/183x171-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/183x171-img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/183x171-img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/186x99_img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/186x99_img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/186x99_img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/186x99_img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/250x156_img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/250x156_img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/250x156_img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/250x156_img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/250x171-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/460x200-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/460x200-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/99x92-img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/99x92-img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/99x92-img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/99x92-img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/accordion-close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/accordion-open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/arrows-big.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/bg_direction_nav.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/bg_header.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/bird-small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/blog/post1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/blog/post2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/blog/post3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/btn_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/button-shadow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/camera-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icon3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icon4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/icon-box-error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/icon-box-info.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/icon-box-notice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/icon-box-success.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/icon1-hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/icon1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/icon2-hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/icon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/icon3-hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/icon3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/list-arrow-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/list-arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/list-check-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/list-check.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/list-circle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/list-dash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/list-plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/list-star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/qoute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/icons/quotes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/image-blank.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/inner-header.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/jade.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/jll-real-estate.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/l_li_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/li_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/magnifier.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/main_tail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/mark.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/marker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/marker1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/pattern-dot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/portfolio/img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/portfolio/img10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/portfolio/img11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/portfolio/img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/portfolio/img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/portfolio/img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/portfolio/img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/portfolio/img6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/portfolio/img7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/portfolio/img8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/portfolio/img9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/post-sub.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/prevnext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/price-list.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/quotes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/read_more.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/read_more_hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/real-estate-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/slide.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/slide2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/slide3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/apple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/blogger.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/deviantart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/digg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/dribbble.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/facebook.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/flickr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/forrst.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/googleplus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/lastfm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/mail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/newsvine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/rss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/sharethis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/skype.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/stumbleupon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/tumblr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/twitter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/vimeo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/wordpress.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/social_icons/youtube.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/spacer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/thumb-slide.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/thumb-slide1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/thumb-slide2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/thumb-slide3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/images/transparent-dark2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/js/accordion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/js/camera.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/js/custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/js/filter_setting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/js/forms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/js/superfish.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/js/tabs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/frontend/js/touchTouch.jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/images/arrows-big.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/images/arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/images/bg_direction_nav.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/images/camera-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/images/li_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/images/prevnext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/images/spacer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/images/star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/js/resources_js_pages_AgentsPage_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/js/resources_js_pages_EmailVerifyPage_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/js/resources_js_pages_LogAndRegPage_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/js/resources_js_pages_MyProfilePage_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/js/resources_js_pages_OneUserPage_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/js/resources_js_pages_PageAbout_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/js/resources_js_pages_PageError404_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/js/resources_js_pages_PageHome_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/js/resources_js_pages_PostsPage_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/js/resources_js_pages_SinglePostPage_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/mix-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/About/AboutUsStaff.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/About/WhatWeOffers.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Auth/FormLogin.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Auth/LogAndReg.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Forms/FormFile.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/HeadAndFooter/Header-Routes.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/HeadAndFooter/StaticFooter.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Home/FeaturedProperties.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Home/HomeAbout.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Home/HowWeWorks.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Home/LatestProperties.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Post/SinglePost.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Profile/OneUserProfile.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Profile/User-Profile.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Profile/User-Redact-Profile.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Search/HouseSearch.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/components/Welcome.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/pages/AgentsPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/pages/EmailVerifyPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/pages/LogAndRegPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/pages/MyProfilePage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/pages/OneUserPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/pages/PageAbout.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/pages/PageContacts.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/pages/PageError404.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/pages/PageHome.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/pages/PostsPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/pages/RedactProfilePage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/pages/SinglePostPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/store/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/store/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/store/emailVerify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/store/posts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/store/toast.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/js/store/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/views/Auth/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/views/Auth/verify-email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/views/my_menu.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/resources/views/welcome.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/routes/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/routes/channels.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/routes/console.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/storage/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/storage/app/public/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/storage/framework/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/storage/framework/cache/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/storage/framework/cache/data/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/storage/framework/sessions/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/storage/framework/testing/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/storage/framework/views/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/storage/logs/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/tests/CreatesApplication.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/tests/Feature/ExampleTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/tests/TestCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/tests/Unit/ExampleTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/vite.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/webpack.mix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyRent/src/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/JustRegController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Models/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Models/Post.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/app/Models/Tag.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/database/migrations/2022_08_06_102046_create_password_resets_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/custom/passwords/email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lara/src/resources/views/layouts/dashboard.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/lara_jwt_vue.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Console/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Exceptions/Handler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Controllers/Api/NewPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Controllers/UploadFileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Middleware/PreventRequestsDuringMaintenance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Middleware/TrimStrings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Middleware/TrustHosts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Middleware/TrustProxies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Models/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Notifications/ResetPasswordNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/artisan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/artisan.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bootstrap/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bootstrap/cache/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/broadcasting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/cache.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/cors.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/filesystems.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/hashing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/jwt.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/logging.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/queue.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/sanctum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/services.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/factories/UserFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lang/en/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lang/en/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lang/en/passwords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lang/en/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_PageAbout_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_PageError404_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_PageHome_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/mix-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/components/Auth/FormLogin.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/components/Auth/FormRegister.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/components/BlogIndex.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/components/Forms/FormFile.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/components/Welcome.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/pages/PageAbout.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/pages/PageContacts.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/pages/PageError404.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/pages/PageHome.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/store/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/store/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/store/posts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/store/toast.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/store/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/views/Auth/verify-email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/views/welcome.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/channels.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/console.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/storage/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/storage/app/public/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/storage/framework/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/storage/framework/cache/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/storage/framework/cache/data/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/storage/framework/sessions/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/storage/framework/testing/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/storage/framework/views/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/storage/logs/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/CreatesApplication.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/Feature/ExampleTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/TestCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/Unit/ExampleTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vite.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/webpack.mix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/RelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lara/src/app/Http/Controllers/RelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lara/src/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../lara/src/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lara/src/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../lara/src/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lara/src/resources/views/my_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lara/src/resources/views/my_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lara/src/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lara/src/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lara/src/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lara/src/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lara/src/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../lara/src/routes/web.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/src/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/src/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/src/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/src/vendor/composer" />
+      <path value="$PROJECT_DIR$/src/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/src/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/src/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/src/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/src/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/src/vendor/nunomaduro/termwind" />
+      <path value="$PROJECT_DIR$/src/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/src/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/src/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/src/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/src/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/src/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/src/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/src/vendor/stella-maris/clock" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/src/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/src/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/src/vendor/fruitcake/php-cors" />
+      <path value="$PROJECT_DIR$/src/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/src/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/src/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/src/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/src/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/src/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/src/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/src/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/src/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/src/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/src/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/src/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/src/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/src/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/src/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/src/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/src/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/src/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/src/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/src/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/src/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/src/vendor/laravel/sanctum" />
+      <path value="$PROJECT_DIR$/src/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/src/vendor/laravel/pint" />
+      <path value="$PROJECT_DIR$/src/vendor/laravel/sail" />
+      <path value="$PROJECT_DIR$/src/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/src/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/src/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/src/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/src/vendor/spatie/ignition" />
+      <path value="$PROJECT_DIR$/src/vendor/spatie/laravel-ignition" />
+      <path value="$PROJECT_DIR$/src/vendor/spatie/backtrace" />
+      <path value="$PROJECT_DIR$/src/vendor/spatie/flare-client-php" />
+      <path value="$PROJECT_DIR$/src/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/src/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/src/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/src/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/src/vendor/league/config" />
+      <path value="$PROJECT_DIR$/src/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/src/vendor/facade/ignition-contracts" />
+      <path value="$PROJECT_DIR$/src/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/src/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/src/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/src/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/src/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/src/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/src/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/src/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/src/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/src/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/src/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/src/vendor/tymon/jwt-auth" />
+      <path value="$PROJECT_DIR$/src/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/src/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/src/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/src/vendor/psr/event-dispatcher" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2Co5HMGQH9O30nZ8xnW1QodnRXI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Projects/PhpStorm/lara_jwt_vue/src/app&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programming\Projects\PhpStorm\lara_jwt_vue\src\app" />
+      <recent name="D:\Programming\Projects\PhpStorm\lara_jwt_vue\src\app\Http\Controllers\Api" />
+      <recent name="D:\Programming\Projects\PhpStorm\lara_jwt_vue\src\app\Http\Controllers" />
+      <recent name="D:\Programming\Projects\PhpStorm\lara_jwt_vue\src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d432a5d7-3ce4-404c-a5e3-3993abf8ffc0" name="Changes" comment="" />
+      <created>1659456007715</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659456007715</updated>
+      <workItem from="1659456072211" duration="6566000" />
+      <workItem from="1659537658680" duration="7461000" />
+      <workItem from="1659607539501" duration="620000" />
+      <workItem from="1659615850594" duration="17236000" />
+      <workItem from="1659717619512" duration="2674000" />
+      <workItem from="1659779025550" duration="6351000" />
+      <workItem from="1659813368677" duration="4289000" />
+      <workItem from="1659863750699" duration="6234000" />
+      <workItem from="1659882247347" duration="5498000" />
+      <workItem from="1659951457337" duration="3095000" />
+      <workItem from="1660054370990" duration="1595000" />
+      <workItem from="1660122630714" duration="4338000" />
+      <workItem from="1660208367249" duration="4178000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Begin and other projects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Begin and other projects" />
+  </component>
+</project>

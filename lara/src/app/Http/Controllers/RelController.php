@@ -36,4 +36,23 @@ class RelController extends Controller
         Debugbar::info($profile->user->toArray());
         return view('home');
     }
+
+    public function oneToMany()
+    {
+        //$allPost = \App\Models\Post::query()->with('category')->get();
+        //Debugbar::info($allPost->toArray());
+        $somePost = \App\Models\Category::find(3)->posts;
+        Debugbar::info($somePost);
+        return view('home');
+    }
+
+    public function manyToMany()
+    {
+        //$tags = Tag::all();
+        $taged = \App\Models\Tag::query()->where('id',3)->first()->posts;
+        $posts = \App\Models\Tag::find(3)->posts;
+        $tags = \App\Models\Tag::query()->where('id',3)->with('posts')->get();
+        Debugbar::info($tags);
+        return view('home');
+    }
 }

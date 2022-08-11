@@ -27,13 +27,18 @@ Route::get('/about', function () {
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/entity', [App\Http\Controllers\EntityController::class, 'index'])->name('entity.read.all');
 
 Route::post('/entity', [App\Http\Controllers\EntityController::class, 'store'])->name('entity.store');
 
-Route::get('/rel/one-to-one', [App\Http\Controllers\RelController::class, 'oneToOne'])->name('rel');
+Route::get('/rel/one-to-one', [App\Http\Controllers\RelController::class, 'oneToOne'])->name('rel.oTo');
+
+Route::get('/rel/one-to-many', [App\Http\Controllers\RelController::class, 'oneToMany'])->name('rel.oTm');
+
+Route::get('/rel/many-to-many', [App\Http\Controllers\RelController::class, 'manyToMany'])->name('rel.mTm');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
