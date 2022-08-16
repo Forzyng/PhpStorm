@@ -13,7 +13,7 @@
                         <section class="slider"  v-if="store.postLast.image">
                             <div class="flexslider" style="text-align: center">
                                 <a class="page3-img1 fixed-img magnifier" v-bind:href="'/storage/' + store.postLast.image">
-                                <img v-bind:src="'/storage/' + store.postLast.image">
+                                    <img v-bind:src="'/storage/' + store.postLast.image">
                                 </a>
                             </div>
                         </section>
@@ -38,15 +38,15 @@
                             <p v-if="store.postLast.description">{{store.postLast.description }}</p>
 
                             <div  v-if="store.isUserPost">
-                            <ul class="list-inline m-0">
-                                <li class="list-inline-item">
-                                    <a style="color: white" href="#"> <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"> Edit</button></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a style="color: white" href="#"> <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete">Delete</button></a>
-                                </li>
-                            </ul>
-                        </div>
+                                <ul class="list-inline m-0">
+                                    <li class="list-inline-item">
+                                        <a style="color: white" href="#"> <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"> Edit</button></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a style="color: white" href="#"> <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete">Delete</button></a>
+                                    </li>
+                                </ul>
+                            </div>
                             <div v-else>
                                 <ul class="list-inline m-0">
                                     <li class="list-inline-item">
@@ -78,34 +78,10 @@
 </template>
 
 <script>
-//import {usePostStore} from "../../store/posts";
-import { useRouter, useRoute } from 'vue-router'
-import {usePostStore} from "../../store/posts";
 import LoadingComponent from "../Loading/LoadingComponent";
-
 export default {
-    name: "SinglePost",
-    components: {LoadingComponent},
-    setup () {
-        const store = usePostStore()
-        const router = useRouter()
-        const route = useRoute()
-
-
-        const dogetPostBySlug = function () {
-            console.log('get')
-            store.getPostBySlug(route.params.slug)
-        }
-
-        if(!store.isLoaded || store.isLoaded )
-        {
-            dogetPostBySlug()
-        }
-
-        return {
-            store, dogetPostBySlug
-        }
-    }
+    name: "RedactPost",
+    components: {LoadingComponent}
 }
 </script>
 

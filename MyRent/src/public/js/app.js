@@ -20602,15 +20602,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  "class": "main-wrapper main-wrapper-shadow"
-};
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"footer-1\"><div class=\"container_12\"><div class=\"wrapper\"><div class=\"grid_3\"><h2>Office Address</h2><p>Lorem ipsum dolor sit amet, secte adipisicing laoreet elit, sed do eiusmod tempor incididunt. </p><address><dl><dd><span>Phone:</span> +1 100 123 6580</dd><dd><span>Mobile:</span> +1 200 123 6035</dd><dd><span>FAX:</span> +1 300 123 989</dd><dd><span>E-mail:</span> <a href=\"#\" class=\"link-1\"> mail@owltemplates.com</a></dd></dl></address></div><div class=\"grid_3\"><h2>Property Types</h2><ul class=\"list1\"><li><a href=\"#\">Single Home </a></li><li><a href=\"#\">Family Home </a></li><li><a href=\"#\">Apartment </a></li><li><a href=\"#\">Villa </a></li><li><a href=\"#\">Condo </a></li><li><a href=\"#\">Other </a></li></ul></div><div class=\"grid_3 tweet\"><h2>Twitter Feed</h2><div class=\"tweets\"><p> Loading Tweets... </p><ul id=\"tweet-list\"></ul></div></div><div class=\"grid_3\"><div class=\"wrapper\"><div class=\"flickr\"><h2>Flickr Photos</h2></div></div><div class=\"clear\"></div></div></div></div></div><div class=\"footer-2\"><div class=\"container_12\"><div class=\"wrapper\"><div class=\"grid_12\"><div class=\"policy\">Triangle © 2022 <a href=\"#\">Privacy Policy</a></div></div></div></div></div>", 2);
-
-var _hoisted_4 = [_hoisted_2];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("footer", _hoisted_1, _hoisted_4);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    <footer class=\"main-wrapper main-wrapper-shadow\">\n\n        <div class=\"footer-2\">\n            <div class=\"container_12\">\n                <div class=\"wrapper\">\n                    <div class=\"grid_12\">\n                        <div class=\"policy\">Triangle &copy; 2022 <a href=\"#\">Privacy Policy</a></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </footer>");
 }
 
 /***/ }),
@@ -20677,9 +20670,18 @@ _router__WEBPACK_IMPORTED_MODULE_6__["default"].beforeEach(function (to, from, n
   var logedStore = (0,_store_user__WEBPACK_IMPORTED_MODULE_3__.useUserStore)();
   if (to.name === 'Login' && logedStore.user) next({
     name: 'Home'
-  });else if (to.name === 'redactprofile' && !logedStore.user) next({
+  });else if (to.name === 'RedactProfile' && !logedStore.user) next({
     name: 'Home'
   });else if (to.name === 'MyProfile' && !logedStore.user) next({
+    name: 'Home'
+  });else if (to.name === 'Post' && !logedStore.user) next({
+    name: 'Home'
+  }); //CreatePost
+  else if (to.name === 'User' && !logedStore.user) next({
+    name: 'Home'
+  });else if (to.name === 'CreatePost' && !logedStore.user) next({
+    name: 'Home'
+  });else if (to.name === 'RedactPost' && !logedStore.user) next({
     name: 'Home'
   });else next();
 });
@@ -20764,6 +20766,13 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_js_pages_LogAndRegPage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/LogAndRegPage */ "./resources/js/pages/LogAndRegPage.vue"));
   }
 }, {
+  path: '/redact-profile',
+  name: 'RedactProfile',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_RedactProfile_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/RedactProfile */ "./resources/js/pages/RedactProfile.vue"));
+  }
+}, //User-Redact-Profile
+{
   path: '/posts',
   name: 'Posts',
   component: function component() {
@@ -20777,9 +20786,21 @@ var routes = [{
   }
 }, {
   path: '/posts/:slug',
-  name: 'User',
+  name: 'Post',
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_SinglePostPage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/SinglePostPage */ "./resources/js/pages/SinglePostPage.vue"));
+  }
+}, {
+  path: '/post/redact/:slug',
+  name: 'RedactPost',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_RedactPostPage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/RedactPostPage */ "./resources/js/pages/RedactPostPage.vue"));
+  }
+}, {
+  path: '/create-post',
+  name: 'CreatePost',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_CreatePostPage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/CreatePostPage */ "./resources/js/pages/CreatePostPage.vue"));
   }
 }, {
   path: '/agents',
@@ -20838,16 +20859,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 // import { defineStore } from 'pinia'
 
 
-var serverUrl = 'http://localhost:8000/api';
+var serverUrl = 'http://127.0.0.1:8000/api';
 var api = {
   get: function get(url) {
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     // В любой запрос нужно добавить JWT
     // А тут перед запросом можно еще и проверить
     // Если он устарел - можно и обновить
-    options.headers = [];
+    options.headers = {};
     var auth = (0,_auth__WEBPACK_IMPORTED_MODULE_1__.useAuthStore)();
-    if (auth.jwt !== null) options.headers['Authorization'] = 'bearer ' + auth.jwt;
+    /*    if (auth.jwt !== null)
+            options.headers['Authorization'] = 'bearer ' + auth.jwt*/
+
+    if (auth.jwt !== null) {
+      options.headers['Authorization'] = 'Bearer ' + auth.jwt;
+      console.log('add jwt');
+      console.log(options);
+      console.log('----------');
+    }
+
     return new Promise(function (resolve, reject) {
       fetch(serverUrl + url).then(function (res) {
         return res.json();
@@ -20893,9 +20923,16 @@ var api = {
               // А тут перед запросом можно еще и проверить
               // Если он устарел - можно и обновить
 
-              options.headers = [];
+              options.headers = {};
               auth = (0,_auth__WEBPACK_IMPORTED_MODULE_1__.useAuthStore)();
-              if (auth.jwt !== null) options.headers['Authorization'] = 'bearer ' + auth.jwt;
+              console.log("check");
+
+              if (auth.jwt !== null) {
+                options.headers['Authorization'] = 'bearer ' + auth.jwt;
+                console.log(auth.jwt);
+              }
+
+              console.log("promise");
               return _context.abrupt("return", new Promise(function (resolve, reject) {
                 fetch(serverUrl + url, options).then(function (res) {
                   return res.json();
@@ -20908,7 +20945,7 @@ var api = {
                 });
               }));
 
-            case 9:
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -21012,20 +21049,59 @@ var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('auth', {
       // console.log('tryLogin res: ')
       // console.log(res)
 
-      _api__WEBPACK_IMPORTED_MODULE_0__.api.post('/auth/login', data).then(function (res) {
-        console.log(res); //toast.success( "You Logged" )
+      /*     api.post('/auth/login', data)
+               .then(res=> {
+                    console.log(res)
+                   //toast.success( "You Logged" )
+                   this.rememberJwt(res.authorisation.token)
+                   const curUser = useUserStore();
+                   curUser.updateUser(res.user)
+                   console.log(res.user)
+                   console.log(res.authorisation.token)
+                   router.push('/my-profile')
+               })*/
 
-        _this.rememberJwt(res.authorisation.token);
+      fetch('http://127.0.0.1:8000/api/auth/login', {
+        method: 'POST',
+        // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors',
+        // no-cors, *cors, same-origin
+        cache: 'no-cache',
+        // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin',
+        // include, *same-origin, omit
+        headers: {//'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow',
+        // manual, *follow, error
+        referrerPolicy: 'no-referrer',
+        // no-referrer, *client
+        body: data // body data type must match "Content-Type" header
+
+      }).then(function (res) {
+        return res.json();
+      }).then(function (json) {
+        console.log(json);
+        toast.success("User authorized");
+        _this.Sending = false;
+
+        _this.rememberJwt(json.authorisation.token);
 
         var curUser = (0,_user__WEBPACK_IMPORTED_MODULE_3__.useUserStore)();
-        curUser.updateUser(res.user);
-        console.log(res.user);
-        console.log(res.authorisation.token);
+        curUser.updateUser(json.user);
+        console.log(json.user);
+        console.log(json.authorisation.token); // this.$router.push({ name: 'home' })
+
         _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/my-profile');
-      });
-      this.Sending = false;
+      })["catch"](function (err) {
+        toast.error(err);
+        _this.Sending = false;
+      }); //this.Sending = false
     },
     tryRegister: function tryRegister(email, login, password, password_confirmation, registerCheck) {
+      var _this2 = this;
+
       var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_1__.useToastStore)();
       console.log('Try create');
       var newUser = {
@@ -21052,47 +21128,50 @@ var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('auth', {
       data.append('login', login);
       data.append('password_confirmation', password_confirmation);
       data.append('name', login);
-      /*api.post('auth/register', data)
-          .then(res=> {
-              console.log(res)
-              toast.success("You registered")
-              this.rememberJwt(res.authorisation.token)
-              const curUser = useUserStore();
-              curUser.updateUser(res.user)
-              console.log(res.user)
-              console.log(res.authorisation.token)
-              router.push('/my-profile')
-          })*/
+      fetch('http://127.0.0.1:8000/api/auth/register', {
+        method: 'POST',
+        // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors',
+        // no-cors, *cors, same-origin
+        cache: 'no-cache',
+        // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin',
+        // include, *same-origin, omit
+        headers: {//'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow',
+        // manual, *follow, error
+        referrerPolicy: 'no-referrer',
+        // no-referrer, *client
+        body: data // body data type must match "Content-Type" header
 
-      /*       fetch('http://127.0.0.1:8000/api/auth/register', {
-                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                 mode: 'cors', // no-cors, *cors, same-origin
-                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                 credentials: 'same-origin', // include, *same-origin, omit
-                 headers: {
-                     'Content-Type': 'application/json'
-                     // 'Content-Type': 'application/x-www-form-urlencoded',
-                 },
-                 redirect: 'follow', // manual, *follow, error
-                 referrerPolicy: 'no-referrer', // no-referrer, *client
-                 body: data // body data type must match "Content-Type" header
-             })
-                 .then(res => {
-                  .then(json => {
-                     if (!json) return
-                     console.log(json)
-                     toast.success("User created")
-                     // this.$router.push({ name: 'home' })
-                     // TODO  уйти на другой маршрут, сообщить что все хорошо
-                 })
-                 .catch(err => {
-                     toast.error(err)
-                     this.Sending = false
-                 })*/
-
-      _api__WEBPACK_IMPORTED_MODULE_0__.api.post('/auth/register', data).then(function (res) {
+      }).then(function (res) {
+        return res.json();
+      }).then(function (json) {
+        console.log(json);
         toast.success("User created");
+
+        if (json.authorisation.token) {
+          _this2.rememberJwt(json.authorisation.token);
+
+          var curUser = (0,_user__WEBPACK_IMPORTED_MODULE_3__.useUserStore)();
+          curUser.updateUser(json.user);
+          console.log(json.user);
+          console.log(json.authorisation.token);
+          _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/my-profile');
+        }
+
+        _this2.Sending = false; // this.$router.push({ name: 'home' })
+        // TODO  уйти на другой маршрут, сообщить что все хорошо
+      })["catch"](function (err) {
+        toast.error(err);
+        _this2.Sending = false;
       });
+      /*api.post('/auth/register', data)
+          .then(res=> {
+              //toast.success("User created")
+          })*/
     },
     validateRegForm: function validateRegForm(data) {
       this.ErrorsValidation = null;
@@ -21224,14 +21303,12 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
       // текущая страница
       isCanMore: true,
       userLast: null,
-      isLoaded: false
+      isLoaded: false,
+      userPosts: null,
+      countPosts: 0
     };
   },
-  getters: {
-    loggedIn: function loggedIn(state) {
-      return state.id !== null;
-    }
-  },
+  getters: {},
   actions: {
     updateUser: function updateUser(payload) {
       if (payload.description !== null) {
@@ -21241,16 +21318,7 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
       }
 
       this.name = payload.name;
-      var nuser = {
-        id: payload.id,
-        name: payload.name,
-        email: payload.email,
-        email_verified_at: payload.email_verified_at,
-        created_at: payload.created_at,
-        login: payload.login,
-        description: payload.description
-      };
-      this.rememberUser(nuser);
+      this.rememberUser(payload);
     },
     rememberUser: function rememberUser(user) {
       this.user = user;
@@ -21266,6 +21334,12 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
     GoRedact: function GoRedact() {
       _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/redact-profile');
     },
+    GoMyProfile: function GoMyProfile() {
+      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/my-profile');
+    },
+    GoCreatePost: function GoCreatePost() {
+      _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/create-post');
+    },
     getMoreUsers: function getMoreUsers() {
       var _this = this;
 
@@ -21275,63 +21349,245 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
       }
 
       this.page++;
+      this.isLoaded = false;
       var url = '/users/?page=' + this.page + '&per_page=' + this.per_page;
       console.log('get new users: ' + url);
       _api__WEBPACK_IMPORTED_MODULE_2__.api.get(url).then(function (res) {
-        _this.total = res.total;
-        console.log('getData: ');
-        console.log(res.data);
-        _this.users = _this.users.concat(res.data);
+        if (res) {
+          _this.total = res.total;
+          console.log('getData: ');
+          console.log(res.data);
+          _this.users = _this.users.concat(res.data);
+          _this.isLoaded = true;
+        }
       });
     },
     getUserByLogin: function getUserByLogin(login) {
       var _this2 = this;
 
+      this.countPosts = 0;
+      this.isLoaded = false;
       var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
       var data = new FormData();
       data.append('login', login);
       _api__WEBPACK_IMPORTED_MODULE_2__.api.post('/get-user-login', data).then(function (res) {
         console.log(res);
-        toast.success("Loaded");
+
+        if (res) {
+          toast.success("Loaded");
+          console.log(res);
+          _this2.userLast = res; //this.isLoaded = true
+
+          _this2.getUsersPosts(_this2.userLast.id);
+        }
+      });
+    },
+    getMyUser: function getMyUser() {
+      var _this3 = this;
+
+      this.countPosts = 0;
+      this.isLoaded = false; // const toast = useToastStore()
+
+      var data = new FormData();
+      data.append('login', this.user.login);
+      _api__WEBPACK_IMPORTED_MODULE_2__.api.post('/get-user-login', data).then(function (res) {
+        //toast.success( "Loaded" )
+        console.log(res); //this.user = res
+        //this.isLoaded = true
+
+        if (res) {
+          _this3.forgetUser();
+
+          _this3.updateUser(res);
+
+          _this3.getUsersPosts(_this3.user.id);
+        }
+      });
+    },
+    getUsersPosts: function getUsersPosts(user_id) {
+      var _this4 = this;
+
+      this.isLoaded = false;
+      var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
+      var data = new FormData();
+      data.append('user_id', user_id);
+      _api__WEBPACK_IMPORTED_MODULE_2__.api.post('/get-posts-id', data).then(function (res) {
         console.log(res);
-        _this2.userLast = res;
+        console.log(res);
+
+        if (res) {
+          toast.success("Loaded");
+          _this4.userPosts = res;
+          _this4.isLoaded = true;
+          _this4.countPosts = _this4.userPosts.length;
+        }
+      });
+    },
+    apiTryUpdatePolicyUser: function apiTryUpdatePolicyUser(newPassword, newPasswordConfirm) {
+      var _this5 = this;
+
+      var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
+      console.log('Try to update');
+      var password = newPassword;
+
+      if (password !== null) {
+        if (password.length < 6 || password.length > 35) {
+          toast.error("Invalid Password");
+          return false;
+        }
+      }
+
+      if (newPassword !== newPasswordConfirm) {
+        toast.error("Invalid Password Confirmation");
+        return false;
+      }
+
+      var data = new FormData();
+      data.append('password', newPassword);
+      data.append('password_confirmation', newPasswordConfirm);
+      data.append('id', this.user.id);
+      console.log('Fetch');
+      fetch('http://127.0.0.1:8000/api/UpdateUserPrivacy', {
+        method: 'POST',
+        // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors',
+        // no-cors, *cors, same-origin
+        cache: 'no-cache',
+        // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin',
+        // include, *same-origin, omit
+        headers: {
+          authorization: localStorage.getItem('jwt') // 'Content-Type': 'application/x-www-form-urlencoded',
+
+        },
+        redirect: 'follow',
+        // manual, *follow, error
+        referrerPolicy: 'no-referrer',
+        // no-referrer, *client
+        body: data // body data type must match "Content-Type" header
+
+      }).then(function (res) {
+        return res.json();
+      }).then(function (json) {
+        console.log(json);
+
+        if (!json.error) {
+          _this5.updateUser(json);
+
+          toast.success("User updated");
+        } else {
+          toast.error(json.error);
+        }
+
+        _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/my-profile'); // dispatch('nullingData')
+        // this.$router.push({ name: 'home' })
+      })["catch"](function (err) {
+        toast.error(err);
+      });
+    },
+    UpdateAvatar: function UpdateAvatar(image) {
+      var _this6 = this;
+
+      var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
+      console.log('Try to update');
+      var data = new FormData();
+      data.append("image", image);
+      data.append('id', this.user.id);
+      console.log('Fetch');
+      fetch('http://127.0.0.1:8000/api/UpdateUser', {
+        method: 'POST',
+        // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors',
+        // no-cors, *cors, same-origin
+        cache: 'no-cache',
+        // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin',
+        // include, *same-origin, omit
+        headers: {
+          authorization: localStorage.getItem('jwt') // 'Content-Type': 'application/x-www-form-urlencoded',
+
+        },
+        redirect: 'follow',
+        // manual, *follow, error
+        referrerPolicy: 'no-referrer',
+        // no-referrer, *client
+        body: data // body data type must match "Content-Type" header
+
+      }).then(function (res) {
+        return res.json();
+      }).then(function (json) {
+        console.log(json);
+
+        if (!json.error) {
+          _this6.updateUser(json);
+
+          toast.success("User avatar updated");
+        } else {
+          toast.error(json.error);
+        }
+
+        _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/my-profile'); // dispatch('nullingData')
+        // this.$router.push({ name: 'home' })
+      })["catch"](function (err) {
+        toast.error(err);
+      });
+    },
+    tryUpdateUser: function tryUpdateUser(newFullname, newDescription, image) {
+      var _this7 = this;
+
+      var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
+      console.log('Try to update');
+
+      if (/\d/.test(newFullname.value)) {
+        return false;
+      }
+
+      var data = new FormData();
+      data.append('name', newFullname);
+      data.append('description', newDescription);
+      data.append('id', this.user.id);
+      /*
+      data.append("image", image);*/
+
+      console.log('Fetch');
+      fetch('http://127.0.0.1:8000/api/UpdateUser', {
+        method: 'POST',
+        // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors',
+        // no-cors, *cors, same-origin
+        cache: 'no-cache',
+        // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin',
+        // include, *same-origin, omit
+        headers: {
+          authorization: localStorage.getItem('jwt') // 'Content-Type': 'application/x-www-form-urlencoded',
+
+        },
+        redirect: 'follow',
+        // manual, *follow, error
+        referrerPolicy: 'no-referrer',
+        // no-referrer, *client
+        body: data // body data type must match "Content-Type" header
+
+      }).then(function (res) {
+        return res.json();
+      }).then(function (json) {
+        console.log(json);
+
+        if (!json.error) {
+          _this7.updateUser(json);
+
+          toast.success("User updated");
+        } else {
+          toast.error(json.error);
+        }
+
+        _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/my-profile'); // this.$router.push({ name: 'login', query: { redirect: '/' } })
+      })["catch"](function (err) {
+        toast.error(err); // commit('Updating', false)
+        // dispatch('nullingData')
       });
     }
-    /*
-    confirmJwt () {
-        if (this.loggedIn)
-            return;
-        const authStore = useAuthStroe()
-        if (authStore.jwt)
-        {
-            fetch(authStore.combineUrl('auth/jwt'), {
-                method: 'GET',
-                headers: {
-                    'authorization': authStore.jwt,
-                    'Content-Type': 'application/json'
-                },
-            })
-                .then(res => {
-                    if (res && res.status === 200) {
-                        return res.json()
-                    }
-                    else if (res && res.status === 401) {
-                        this.clearUser()
-                        authStore.forgetJwt()
-                    }
-                })
-                .then(data => {
-                    if (data)
-                        this.updateUser(data)
-                })
-        }
-        else
-        {
-            this.clearUser()
-        }
-    },
-     */
-
   }
 });
 
@@ -47969,7 +48225,7 @@ function useRoute() {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_PageHome_vue":1,"resources_js_pages_PageAbout_vue":1,"resources_js_pages_LogAndRegPage_vue":1,"resources_js_pages_PostsPage_vue":1,"resources_js_pages_OneUserPage_vue":1,"resources_js_pages_SinglePostPage_vue":1,"resources_js_pages_AgentsPage_vue":1,"resources_js_pages_MyProfilePage_vue":1,"resources_js_pages_EmailVerifyPage_vue":1,"resources_js_pages_PageError404_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_PageHome_vue":1,"resources_js_pages_PageAbout_vue":1,"resources_js_pages_LogAndRegPage_vue":1,"resources_js_pages_RedactProfile_vue":1,"resources_js_pages_PostsPage_vue":1,"resources_js_pages_OneUserPage_vue":1,"resources_js_pages_SinglePostPage_vue":1,"resources_js_pages_RedactPostPage_vue":1,"resources_js_pages_CreatePostPage_vue":1,"resources_js_pages_AgentsPage_vue":1,"resources_js_pages_MyProfilePage_vue":1,"resources_js_pages_EmailVerifyPage_vue":1,"resources_js_pages_PageError404_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

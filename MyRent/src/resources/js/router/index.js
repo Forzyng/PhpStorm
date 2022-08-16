@@ -17,6 +17,12 @@ const routes = [
         component: () => import('../pages/LogAndRegPage')
     },
     {
+        path: '/redact-profile',
+        name: 'RedactProfile',
+        component: () => import('../pages/RedactProfile')
+    },
+    //User-Redact-Profile
+    {
         path: '/posts',
         name: 'Posts',
         component: () => import('../pages/PostsPage')
@@ -28,8 +34,18 @@ const routes = [
     },
     {
         path: '/posts/:slug',
-        name: 'User',
+        name: 'Post',
         component: () => import('../pages/SinglePostPage')
+    },
+    {
+        path: '/post/redact/:slug',
+        name: 'RedactPost',
+        component: () => import('../pages/RedactPostPage')
+    },
+    {
+        path: '/create-post',
+        name: 'CreatePost',
+        component: () => import('../pages/CreatePostPage')
     },
     {
         path: '/agents',

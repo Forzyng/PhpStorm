@@ -17,10 +17,12 @@ export const useUserStore = defineStore('user', {
             page: 0, // текущая страница
             isCanMore: true,
             userLast: null,
-            isLoaded: false
+            isLoaded: false,
+            userPosts: null,
+            countPosts: 0
         }),
     getters: {
-        loggedIn: (state) => state.id !== null,
+
     },
     actions: {
         updateUser (payload) {
@@ -34,16 +36,8 @@ export const useUserStore = defineStore('user', {
 
 
             this.name = payload.name
-            const nuser = {
-                id: payload.id,
-                name: payload.name,
-                email: payload.email,
-                email_verified_at: payload.email_verified_at,
-                created_at: payload.created_at,
-                login: payload.login,
-                description: payload.description
-            }
-            this.rememberUser(nuser)
+
+            this.rememberUser(payload)
         },
         rememberUser(user)
         {
@@ -61,29 +55,43 @@ export const useUserStore = defineStore('user', {
         {
             router.push('/redact-profile')
         },
-
-
+        GoMyProfile()
+        {
+            router.push('/my-profile')
+        },
+        GoCreatePost()
+        {
+            router.push('/create-post')
+        },
         getMoreUsers(){
+
             if (this.page * this.per_page > this.total) {
                 this.isCanMore = false
                 return
             }
             this.page++
-
+            this.isLoaded = false
             let url = '/users/?page=' + this.page + '&per_page=' + this.per_page
             console.log('get new users: ' + url)
 
             api.get(url)
                 .then(res => {
-                    this.total = res.total
-                    console.log('getData: ')
-                    console.log(res.data)
-                    this.users = this.users.concat(res.data)
+                        if(res)
+                        {
+                            this.total = res.total
+                            console.log('getData: ')
+                            console.log(res.data)
+                            this.users = this.users.concat(res.data)
+                            this.isLoaded = true
+                        }
+
                 })
         },
 
         getUserByLogin(login)
         {
+            this.countPosts = 0
+            this.isLoaded = false
             const toast = useToastStore()
             const data = new FormData()
             data.append('login', login);
@@ -91,46 +99,244 @@ export const useUserStore = defineStore('user', {
             api.post('/get-user-login', data)
                 .then(res=> {
                     console.log(res)
-                    toast.success( "Loaded" )
-                    console.log(res)
-                    this.userLast = res
+                        if(res)
+                        {
+                            toast.success( "Loaded" )
+                            console.log(res)
+                            this.userLast = res
+                            //this.isLoaded = true
+
+                            this.getUsersPosts(this.userLast.id)
+                        }
+
                 })
+        },
+        getMyUser()
+        {
+            this.countPosts = 0
+            this.isLoaded = false
+           // const toast = useToastStore()
+            const data = new FormData()
+            data.append('login', this.user.login);
+
+            api.post('/get-user-login', data)
+                .then(res=> {
+                    //toast.success( "Loaded" )
+                    console.log(res)
+                    //this.user = res
+                    //this.isLoaded = true
+                    if(res)
+                    {
+                        this.forgetUser()
+                        this.updateUser(res);
+                        this.getUsersPosts(this.user.id)
+                    }
+
+                })
+        },
+        getUsersPosts(user_id)
+        {
+            this.isLoaded = false
+            const toast = useToastStore()
+            const data = new FormData()
+            data.append('user_id', user_id);
+
+            api.post('/get-posts-id', data)
+                .then(res=> {
+                    console.log(res)
+
+                    console.log(res)
+                    if(res)
+                    {
+                        toast.success( "Loaded" )
+                        this.userPosts = res
+                        this.isLoaded = true
+                        this.countPosts = this.userPosts.length
+                    }
+
+
+                })
+        },
+
+
+
+
+
+
+
+
+
+
+
+         apiTryUpdatePolicyUser (newPassword, newPasswordConfirm) {
+
+             const toast = useToastStore()
+            console.log('Try to update')
+            const password = newPassword
+            if (password !== null) {
+                    if (password.length < 6 || password.length > 35) {
+                        toast.error( "Invalid Password" )
+                        return false
+                    }
+            }
+                if (newPassword !== newPasswordConfirm) {
+                    toast.error( "Invalid Password Confirmation" )
+                    return false
+                }
+             const data = new FormData()
+             data.append('password', newPassword);
+             data.append('password_confirmation', newPasswordConfirm);
+             data.append('id', this.user.id)
+
+
+            console.log('Fetch')
+            fetch('http://127.0.0.1:8000/api/UpdateUserPrivacy', {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    authorization: localStorage.getItem('jwt')
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *client
+                body: data // body data type must match "Content-Type" header
+            })
+                .then(res => {
+
+                        return res.json()
+
+                })
+                .then(json => {
+
+                    console.log(json)
+
+                    if(!json.error)
+                    {
+                        this.updateUser(json)
+                        toast.success( "User updated" )
+                    }
+                    else {
+                        toast.error( json.error )
+                    }
+                    router.push('/my-profile')
+                    // dispatch('nullingData')
+                    // this.$router.push({ name: 'home' })
+                })
+                .catch(err => {
+                    toast.error( err )
+
+                })
+        },
+        UpdateAvatar (image) {
+
+            const toast = useToastStore()
+            console.log('Try to update')
+
+            const data = new FormData()
+            data.append("image", image);
+            data.append('id', this.user.id)
+
+            console.log('Fetch')
+            fetch('http://127.0.0.1:8000/api/UpdateUser', {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    authorization: localStorage.getItem('jwt')
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *client
+                body: data // body data type must match "Content-Type" header
+            })
+                .then(res => {
+
+                    return res.json()
+
+                })
+                .then(json => {
+
+                    console.log(json)
+
+                    if(!json.error)
+                    {
+                        this.updateUser(json)
+                        toast.success( "User avatar updated" )
+                    }
+                    else {
+                        toast.error( json.error )
+                    }
+                    router.push('/my-profile')
+                    // dispatch('nullingData')
+                    // this.$router.push({ name: 'home' })
+                })
+                .catch(err => {
+                    toast.error( err )
+
+                })
+        },
+
+        tryUpdateUser (newFullname, newDescription, image) {
+            const toast = useToastStore()
+            console.log('Try to update')
+            if (/\d/.test(newFullname.value)) {
+                return false
+            }
+
+            const data = new FormData()
+            data.append('name', newFullname);
+            data.append('description', newDescription);
+            data.append('id', this.user.id)/*
+            data.append("image", image);*/
+
+
+            console.log('Fetch')
+            fetch('http://127.0.0.1:8000/api/UpdateUser', {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    authorization: localStorage.getItem('jwt')
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *client
+                body: data // body data type must match "Content-Type" header
+            })
+                .then(res => {
+                            return res.json()
+                    }
+                )
+                .then(json => {
+
+
+                    console.log(json);
+                    if(!json.error)
+                    {
+                        this.updateUser(json)
+                        toast.success( "User updated" )
+                    }
+                    else {
+                        toast.error( json.error )
+                    }
+
+                    router.push('/my-profile')
+                    // this.$router.push({ name: 'login', query: { redirect: '/' } })
+                })
+                .catch(err => {
+                    toast.error( err )
+
+                    // commit('Updating', false)
+                    // dispatch('nullingData')
+                })
+
         }
 
-        /*
-        confirmJwt () {
-            if (this.loggedIn)
-                return;
-            const authStore = useAuthStroe()
-            if (authStore.jwt)
-            {
-                fetch(authStore.combineUrl('auth/jwt'), {
-                    method: 'GET',
-                    headers: {
-                        'authorization': authStore.jwt,
-                        'Content-Type': 'application/json'
-                    },
-                })
-                    .then(res => {
-                        if (res && res.status === 200) {
-                            return res.json()
-                        }
-                        else if (res && res.status === 401) {
-                            this.clearUser()
-                            authStore.forgetJwt()
-                        }
-                    })
-                    .then(data => {
-                        if (data)
-                            this.updateUser(data)
-                    })
-            }
-            else
-            {
-                this.clearUser()
-            }
-        },
-         */
+
     }
 
 })

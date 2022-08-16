@@ -1,4 +1,9 @@
 <template>
+    <div v-if="!store.isLoaded">
+        <!-- here put a spinner or whatever you want to indicate that a request is in progress -->
+        <LoadingComponent></LoadingComponent>
+    </div>
+    <div>
     <div class="row-2">
         <div class="container_12">
             <!-- Search  -->
@@ -22,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="main_bg">
+    <div class="main_bg" v-if="store.users">
         <div class="grid_12">
             <h2 class="p2">Agents</h2>
         </div>
@@ -30,12 +35,12 @@
             <div class="container_12">
                 <div class="wrapper">
 
-                    <div class="ident-bot-2"         >
-                        <div class="grid_3"> <img class="img_inner fleft" v-bind:src="'/storage/' + user.avatar" alt=""> </div>
+                    <div class="ident-bot-2" >
+                        <div class="grid_3"> <a v-bind:href="'http://127.0.0.1:8000/users/' + user.login"><img class="img_inner fleft" v-bind:src="'/storage/' + user.avatar" alt=""> </a></div>
                         <div class="grid_6">
                             <div class="team-text ident-bot-1">
                                 <h3 v-text="user.name"></h3>
-                                <a href="#" class="link-name">Profile</a>
+                                <a v-bind:href="'http://127.0.0.1:8000/users/' + user.login" class="link-name">Profile</a>
                                 <p class="ident-top-1" v-text="user.description"> </p>
                             </div>
                         </div>
@@ -63,13 +68,19 @@
         </section>
         <a href="#" id="loadMore" @click="doGetMoreUsers">Load More</a>
     </div>
+    <div v-else style="text-align: center">
+        0oopsss. It seems like there is no posts
+    </div>
+    </div>
 </template>
 
 <script>
 import {useUserStore} from "../store/user";
+import LoadingComponent from "../components/Loading/LoadingComponent";
 
 export default {
     name: "AgentsPage",
+    components: {LoadingComponent},
     setup() {
         const store = useUserStore()
         const doGetMoreUsers = function () {

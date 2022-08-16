@@ -27,10 +27,12 @@ class CreatePostsTable extends Migration
             $table->text('meta_keywords');
             $table->enum('status', ['PUBLISHED', 'DRAFT', 'PENDING'])->default('DRAFT');
             $table->boolean('featured')->default(0);
-            $table->float('price')->default(0);;
-            $table->string('address')->default(0);;
-            $table->string('size')->default(0);;
-            $table->string('year')->default(0);;
+            $table->float('price')->default(0);
+            $table->string('address')->default(0);
+            $table->string('size')->default(0);
+            $table->string('year')->default(0);
+            $table->string('country')->default("none");
+            $table->string('city')->default("none");
             $table->timestamps();
 
             //$table->foreign('author_id')->references('id')->on('users');

@@ -24,8 +24,12 @@ router.beforeEach((to, from, next) => {
     console.log('Before each')
     const logedStore = useUserStore()
     if (to.name === 'Login' && logedStore.user) next({ name: 'Home' })
-    else if (to.name === 'redactprofile' && !logedStore.user) next({ name: 'Home' })
+    else if (to.name === 'RedactProfile' && !logedStore.user) next({ name: 'Home' })
     else if (to.name === 'MyProfile' && !logedStore.user) next({ name: 'Home' })
+    else if (to.name === 'Post' && !logedStore.user) next({ name: 'Home' })  //CreatePost
+    else if (to.name === 'User' && !logedStore.user) next({ name: 'Home' })
+    else if (to.name === 'CreatePost' && !logedStore.user) next({ name: 'Home' })
+    else if (to.name === 'RedactPost' && !logedStore.user) next({ name: 'Home' })
     else next()
 })
 

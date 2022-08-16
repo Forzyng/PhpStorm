@@ -2,7 +2,7 @@
 import {useToastStore} from "./toast";
 import {useAuthStore} from "./auth";
 
-const serverUrl = 'http://localhost:8000/api'
+const serverUrl = 'http://127.0.0.1:8000/api'
 
 export const api = {
 
@@ -11,10 +11,17 @@ export const api = {
         // В любой запрос нужно добавить JWT
         // А тут перед запросом можно еще и проверить
         // Если он устарел - можно и обновить
-        options.headers = []
+        options.headers = {}
         const auth = useAuthStore()
-        if (auth.jwt !== null)
-            options.headers['Authorization'] = 'bearer ' + auth.jwt
+    /*    if (auth.jwt !== null)
+            options.headers['Authorization'] = 'bearer ' + auth.jwt*/
+
+        if (auth.jwt !== null) {
+            options.headers['Authorization'] = 'Bearer ' + auth.jwt
+            console.log('add jwt')
+            console.log(options)
+            console.log('----------')
+        }
 
         return new Promise((resolve, reject) => {
 
@@ -62,10 +69,15 @@ export const api = {
         // В любой запрос нужно добавить JWT
         // А тут перед запросом можно еще и проверить
         // Если он устарел - можно и обновить
-        options.headers = []
+        options.headers = {}
         const auth = useAuthStore()
+        console.log("check")
         if (auth.jwt !== null)
+        {
             options.headers['Authorization'] = 'bearer ' + auth.jwt
+            console.log(auth.jwt)
+        }
+        console.log("promise")
 
         return new Promise((resolve, reject) => {
             fetch(serverUrl + url, options)

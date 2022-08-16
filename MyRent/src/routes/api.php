@@ -57,8 +57,30 @@ Route::get('/offers', function (Request $request) {
     $per_page = $request->input('per_page', 1); // Сколько на страницу
     $page = $request->input('page', 1); // Какая страница
 
-    return \App\Models\Post::paginate($per_page);
+    return \App\Models\Post::query()->whereNot('status', "DRAFT")->with('category')->with('sale_type')->paginate($per_page);  //
 });
 
-Route::post('get-posts', [\App\Http\Controllers\Api\UserPostController::class, 'getPostsByUserId']);
+Route::post('get-posts-id', [\App\Http\Controllers\Api\UserPostController::class, 'getPostsByUserId']);
 Route::post('get-user-login', [\App\Http\Controllers\Api\UserPostController::class, 'getUserByLogin']);
+Route::post('get-post-slug', [\App\Http\Controllers\Api\UserPostController::class, 'getPostBySlug']);
+Route::post('create-post', [\App\Http\Controllers\Api\UserPostController::class, 'createPost']);
+Route::post('get-post-category', [\App\Http\Controllers\Api\UserPostController::class, 'getPostsByCategory']);
+Route::post('get-post-sale-type', [\App\Http\Controllers\Api\UserPostController::class, 'getPostsBySaleType']);
+
+Route::post('UpdateUser', [\App\Http\Controllers\Api\UserPostController::class, 'UpdateUser']);
+Route::post('UpdateUserPrivacy', [\App\Http\Controllers\Api\UserPostController::class, 'UpdateUserPrivacy']);
+
+Route::post('UpdatePost', [\App\Http\Controllers\Api\UserPostController::class, 'UpdatePost']);
+
+Route::post('DeletePost', [\App\Http\Controllers\Api\UserPostController::class, 'DeletePost']);
+Route::post('DeleteUser', [\App\Http\Controllers\Api\UserPostController::class, 'DeleteUser']);
+
+
+Route::get('get-categories', [\App\Http\Controllers\Api\UserPostController::class, 'getCategories']);
+Route::get('get-sale-types', [\App\Http\Controllers\Api\UserPostController::class, 'getSaleTypes']);
+
+/*Route::get('valid', function () {
+    return response()->json([ 'valid' => auth()->check() ]);
+});*/
+
+

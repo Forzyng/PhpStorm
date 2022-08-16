@@ -17,6 +17,8 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/tcg/voyager" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/arrilot/laravel-widgets" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/ui" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/cviebrock/eloquent-sluggable" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/cocur/slugify" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

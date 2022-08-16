@@ -1,5 +1,9 @@
 <template>
-    <div class="main_bg">
+    <div v-if="!store.isLoaded">
+        <!-- here put a spinner or whatever you want to indicate that a request is in progress -->
+        <LoadingComponent></LoadingComponent>
+    </div>
+    <div class="main_bg" v-else>
         <div class="content">
             <div class="container_12">
                 <div class="grid_8">
@@ -86,38 +90,42 @@
     <div class="main_bg">
         <section class="content">
             <div class="container_12">
-                <div class="wrapper">
+                <div class="wrapper" v-if="store.posts">
                     <div class=" grid_12">
                         <h2 class="fleft">All Properties</h2>
                         <!-- start Filter categories -->
                         <ul id="filter">
-                            <li class="active"><a href="#" class="all">All</a></li>
-                            <li><a href="#" class="openhouse">Open House</a></li>
+                            <li><a href="#" class="all">All</a></li>
                             <li><a href="#" class="forrent">For Rent</a></li>
                             <li><a href="#" class="forsale">For Sale</a></li>
                         </ul>
                     </div>
                     <div class="clear"></div>
                     <ul  id="stage"      v-for="post in store.posts">
-                        <li class="grid_6 p8" v-bind:data-id="'id-' + post.id" data-type="openhouse">
-                            <div class="inner-block box b1"> <a class="page3-img1 fixed-img magnifier" href="/frontend/images/image-blank.png"><img  v-bind:src="'/storage/' + post.image" alt=""><span></span></a>
+                        <li class="grid_6 p8" v-bind:data-id="'id-' + post.id">
+                            <div class="inner-block box b1"> <a class="page3-img1 fixed-img magnifier"  v-bind:href="'http://127.0.0.1:8000/posts/' + post.slug" ><img  v-bind:src="'/storage/' + post.image" alt=""><span></span></a>
                                 <div class="port-title">
                                     <div class="port-corner-top"></div>
-                                    <h2 v-text="post.title"></h2>
+                                    <h2><a v-bind:href="'http://127.0.0.1:8000/posts/' + post.slug">{{post.title}}</a></h2>
                                     <ul class="listbox-1">
-                                        <li><span>Property Type:</span><a href="#" v-text="post.category_id"></a></li>
-                                        <li><span>Address:</span><a href="#" v-text="post.address"></a></li>
-                                        <li><span>Year Built:</span><a href="#" v-text="post.year"></a></li>
-                                        <li><span>Building Size (sq ft):</span><a href="#" v-text="post.size"> </a></li>
-                                        <li><span>Country:</span><a href="#" v-text="post.country"> </a></li>
-                                        <li><span>City:</span><a href="#" v-text="post.city"> </a></li>
+                                        <li><span>Property Type:</span><a href="#" v-text="post.category.name"></a></li>
+                                        <li v-if="post.sale_type"><span>Sale Type:</span><a href="#">{{post.sale_type.name}}</a></li>
+                                        <li><span>Address:</span><a href="#">{{post.address}}</a></li>
+                                        <li><span>Year Built:</span><a href="#">{{post.year}}</a></li>
+                                        <li><span>Building Size (sq ft):</span><a href="#">{{post.size}} </a></li>
+                                        <li><span>Country:</span><a href="#">{{post.country}} </a></li>
+                                        <li><span>City:</span><a href="#">{{post.city}} </a></li>
                                     </ul>
+
                                 </div>
                             </div>
                         </li>
                     </ul>
                     <div class="clear"></div>
                     <a href="#" id="loadMore" @click="doGetMorePosts">Load More</a>
+                </div>
+                <div v-else style="text-align: center">
+                    0oopsss. It seems like there is no posts
                 </div>
             </div>
         </section>
@@ -127,9 +135,11 @@
 
 <script>
 import {usePostStore} from "../store/posts";
+import LoadingComponent from "../components/Loading/LoadingComponent";
 
 export default {
     name: "PostsPage",
+    components: {LoadingComponent},
     setup() {
         const store = usePostStore()
         const doGetMorePosts = function () {

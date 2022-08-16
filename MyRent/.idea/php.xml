@@ -127,6 +127,8 @@
       <path value="$PROJECT_DIR$/src/vendor/tcg/voyager" />
       <path value="$PROJECT_DIR$/src/vendor/arrilot/laravel-widgets" />
       <path value="$PROJECT_DIR$/src/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/src/vendor/cviebrock/eloquent-sluggable" />
+      <path value="$PROJECT_DIR$/src/vendor/cocur/slugify" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />

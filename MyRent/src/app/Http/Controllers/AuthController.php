@@ -58,6 +58,7 @@ class AuthController extends Controller
         }
      /*
         }*/
+
         if ($token = JWTAuth::attempt($credentials)) {
             return response()->json([
                 'status' => 'success',
@@ -96,16 +97,26 @@ class AuthController extends Controller
         {
             event(new Registered($user));
         }*/
-        $token = auth()->login($user);
-        return response()->json([
-            'status' => 'success',
-            'message' => 'User created successfully',
-            'user' => $user,
-            'authorisation' => [
-                'token' => $token,
-                'type' => 'bearer',
-            ]
-        ]);
+        $credentials = $request->only('email', 'password');
+        if ($token = JWTAuth::attempt($credentials)) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'User created successfully',
+                'user' => $user,
+                'authorisation' => [
+                    'token' => $token,
+                    'type' => 'bearer',
+                ]
+            ]);
+        }
+        else{
+            return response()->json([
+                'status' => 'success',
+                'message' => 'User created successfully',
+                'user' => $user
+            ]);
+        }
+
     }
 
 

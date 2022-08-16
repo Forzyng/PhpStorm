@@ -2,13 +2,13 @@
   <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
       <div class="col-md-3 border-right">
-        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><span class="font-weight-bold"> Previous</span><img v-bind:src=MainAvatarUrl alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"> <span v-if="isBuf" class="font-weight-bold"> New</span> <img v-if="isBuf" v-bind:src=currentAvatarUrl  class="rounded-circle img-fluid" style="width: 150px;"><span class="font-weight-bold"> Login: {{ UserLogin }}</span>
-          <div class="input-group">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><span class="font-weight-bold"> Current</span><img v-bind:src="'/storage/' + store.user.avatar" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+            <div class="input-group">
             <div class="input-group-prepend">
-              <span  @click="RestoreUserAvatar" :disabled=canSendForm class="input-group-text" id="inputGroupFileAddon01" href="#" ><img src="http://localhost:3000/store/icons/trash_can_icon.png"  style="width:25px;" /></span>
+<!--              <span  @click="RestoreUserAvatar" :disabled=!store.isLoaded class="input-group-text" id="inputGroupFileAddon01" href="#" ><img src="http://localhost:3000/store/icons/trash_can_icon.png"  style="width:25px;" /></span>-->
             </div>
             <div class="custom-file">
-              <input @change="uploadAvatar" :disabled=canSendForm type="file" accept=".jpg, .jpeg, .png, .bmp"  class="custom-file-input" id="inputGroupFile01" name="inputGroupFile01"
+              <input  ref="file" v-on:change="handleFileUpload()" type="file" accept=".jpg, .jpeg, .png, .bmp"  class="custom-file-input" id="inputGroupFile01" name="inputGroupFile01"
                      aria-describedby="inputGroupFileAddon01">
               <label class="custom-file-label" for="inputGroupFile01"></label>
 
@@ -25,15 +25,15 @@
             <div class="col-md-12"><label class="labels">Full name</label><input type="text" class="form-control" placeholder="Full name" v-model="UserFullName"></div>
             <div class="col-md-12"><label class="labels">Description</label><textarea type="text" v-model="UserDescription" placeholder="Description" style="resize: none; height: 150px; margin-bottom: 7px;" maxlength="250" id="form10" class="md-textarea form-control" rows="3"></textarea></div>
           </div>
-          <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" @click="saveUser" :disabled=canSendForm>Save Profile</button></div>
+          <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" @click="saveUser" >Save Profile</button></div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="p-3 py-5">
-          <div class="d-flex justify-content-between align-items-center experience"><span>Edit Policy</span><button class="btn btn-primary profile-button" type="button" :disabled=canSendPolicy @click="UpdatePolicyUser">Save Policy</button></div><br>
+          <div class="d-flex justify-content-between align-items-center experience"><span>Edit Policy</span><button class="btn btn-primary profile-button" type="button"  @click="UpdatePolicyUser">Save Policy</button></div><br>
           <div class="col-md-12"><label class="labels">Password</label><input type="text" class="form-control" placeholder="Password" v-model="UserPassword"></div> <br>
           <div class="col-md-12"><label class="labels">Password Confirm</label><input v-model="UserPasswordConfirm" type="text" class="form-control" placeholder="Password Confirm"></div> <br>
-          <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Email" v-model="UserEmail"></div>
+<!--          <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Email" v-model="UserEmail"></div>-->
         </div>
       </div>
     </div>
@@ -41,73 +41,66 @@
 </template>
 
 <script>
-import { useStore } from 'vuex'
-import { computed } from 'vue'
+import {ref} from "vue";
+import {useUserStore} from "../../store/user";
 export default {
   name: 'User-Redact-Profile',
   setup () {
-    const store = useStore()
+    const store = useUserStore()
+
+      const UserFullName = ref()
+      const UserDescription = ref()
+      const UserPassword = ref()
+      const UserPasswordConfirm = ref()
+      const file = ref(null)
+//, input.files[0]
+      const saveUser = function () {
+          console.log('saving User: ')
+              store.tryUpdateUser(UserFullName.value, UserDescription.value)
+
+      }
+
+      const handleFileUpload = async() => {
+          // debugger;
+          console.log("selected file",file.value.files)
+          //Upload to server
+          store.UpdateAvatar(file.value.files[0])
+      }
+      /*   let data = new FormData()
+            let imageFile = document.getElementById('imageFile');
+            let input = document.querySelector('input[type="file"]')
+            data.append("image", input.files[0]);
+            console.log('Send')
+            console.log(data)
+            fetch('http://127.0.0.1:8000/api/UpdateUserPrivacy', {
+                    method: 'POST',
+                    headers: {
+                        // 'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                        // 'Content-Type': 'multipart/form-data',
+                    },
+                    body: data
+                }
+            )
+                .then(res=> {
+                    console.log(res)
+                    return res.json()
+                })
+                .then(txt => {
+                    console.log(txt)
+                })
+                .catch(err => {
+                    console.log('Error')
+                    console.log(err)
+                })*/
+
+
+      const UpdatePolicyUser = function () {
+          console.log('Start Updating Policy: ')
+          store.apiTryUpdatePolicyUser(UserPassword.value, UserPasswordConfirm.value)
+      }
     return {
-      MainAvatarUrl: computed(() => 'http://localhost:3000/store/avatars' + store.getters.user.avatar),
-      currentAvatarUrl: computed(() => 'http://localhost:3000/uploads' + store.getters.fileName),
-      UserLogin: computed(() => store.getters.user.login),
-      isBuf: computed(() => store.getters.isBuf),
-      saveUser: function () {
-        store.dispatch('tryUpdateUser')
-      },
-      UpdatePolicyUser: function () {
-        store.dispatch('apiTryUpdatePolicyUser')
-      },
-      RestoreUserAvatar: function () {
-        store.dispatch('RestoreUserAvatar')
-      },
-      UserFullName: computed({
-        get () {
-          return store.getters.user.fullname
-        },
-        set (data) {
-          store.commit('newFullname', data)
-        }
-      }),
-      UserDescription: computed({
-        get () {
-          return store.getters.user.description
-        },
-        set (data) {
-          store.commit('newDescription', data)
-        }
-      }),
-      UserEmail: computed({
-        get () {
-          return store.getters.user.email
-        },
-        set (data) {
-          store.commit('newEmail', data)
-        }
-      }),
-      UserPassword: computed({
-        get () {
-          return store.getters.newPassword
-        },
-        set (data) {
-          store.commit('newPassword', data)
-        }
-      }),
-      UserPasswordConfirm: computed({
-        get () {
-          return store.getters.newPasswordConfirm
-        },
-        set (data) {
-          store.commit('newPasswordConfirm', data)
-        }
-      }),
-      uploadAvatar: function (e) {
-        const files = e.target.files || e.dataTransfer.files
-        if (!files.length) return
-        store.dispatch('apiUploadAvatar', files[0])
-      },
-      canSendForm: computed(() => !store.getters.canUpdateUser),
-      canSendPolicy: computed(() => !store.getters.canUpdatePrivacy)
+        store, UserFullName, UserDescription, UserPassword, UserPasswordConfirm, saveUser, UpdatePolicyUser, handleFileUpload, file
     }
   }
 }
