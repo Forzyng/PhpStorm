@@ -21343,6 +21343,8 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
     getMoreUsers: function getMoreUsers() {
       var _this = this;
 
+      var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
+
       if (this.page * this.per_page > this.total) {
         this.isCanMore = false;
         return;
@@ -21353,12 +21355,22 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
       var url = '/users/?page=' + this.page + '&per_page=' + this.per_page;
       console.log('get new users: ' + url);
       _api__WEBPACK_IMPORTED_MODULE_2__.api.get(url).then(function (res) {
-        if (res) {
-          _this.total = res.total;
-          console.log('getData: ');
-          console.log(res.data);
-          _this.users = _this.users.concat(res.data);
-          _this.isLoaded = true;
+        if (res.token) {
+          var AuthStore = (0,_auth__WEBPACK_IMPORTED_MODULE_0__.useAuthStore)();
+          AuthStore.rememberJwt(res.token);
+          toast.info("Try again");
+        }
+
+        if (res.error) {
+          toast.error(res.error);
+        } else {
+          if (res) {
+            _this.total = res.total;
+            console.log('getData: ');
+            console.log(res.data);
+            _this.users = _this.users.concat(res.data);
+            _this.isLoaded = true;
+          }
         }
       });
     },
@@ -21373,18 +21385,29 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
       _api__WEBPACK_IMPORTED_MODULE_2__.api.post('/get-user-login', data).then(function (res) {
         console.log(res);
 
-        if (res) {
-          toast.success("Loaded");
-          console.log(res);
-          _this2.userLast = res; //this.isLoaded = true
+        if (res.token) {
+          var AuthStore = (0,_auth__WEBPACK_IMPORTED_MODULE_0__.useAuthStore)();
+          AuthStore.rememberJwt(res.token);
+          toast.info("Try again");
+        }
 
-          _this2.getUsersPosts(_this2.userLast.id);
+        if (res.error) {
+          toast.error(res.error);
+        } else {
+          if (res) {
+            toast.success("Loaded");
+            console.log(res);
+            _this2.userLast = res; //this.isLoaded = true
+
+            _this2.getUsersPosts(_this2.userLast.id);
+          }
         }
       });
     },
     getMyUser: function getMyUser() {
       var _this3 = this;
 
+      var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
       this.countPosts = 0;
       this.isLoaded = false; // const toast = useToastStore()
 
@@ -21395,12 +21418,22 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
         console.log(res); //this.user = res
         //this.isLoaded = true
 
-        if (res) {
-          _this3.forgetUser();
+        if (res.token) {
+          var AuthStore = (0,_auth__WEBPACK_IMPORTED_MODULE_0__.useAuthStore)();
+          AuthStore.rememberJwt(res.token);
+          toast.info("Try again");
+        }
 
-          _this3.updateUser(res);
+        if (res.error) {
+          toast.error(res.error);
+        } else {
+          if (res) {
+            _this3.forgetUser();
 
-          _this3.getUsersPosts(_this3.user.id);
+            _this3.updateUser(res);
+
+            _this3.getUsersPosts(_this3.user.id);
+          }
         }
       });
     },
@@ -21413,13 +21446,22 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
       data.append('user_id', user_id);
       _api__WEBPACK_IMPORTED_MODULE_2__.api.post('/get-posts-id', data).then(function (res) {
         console.log(res);
-        console.log(res);
 
-        if (res) {
-          toast.success("Loaded");
-          _this4.userPosts = res;
-          _this4.isLoaded = true;
-          _this4.countPosts = _this4.userPosts.length;
+        if (res.token) {
+          var AuthStore = (0,_auth__WEBPACK_IMPORTED_MODULE_0__.useAuthStore)();
+          AuthStore.rememberJwt(res.token);
+          toast.info("Try again");
+        }
+
+        if (res.error) {
+          toast.error(res.error);
+        } else {
+          if (res) {
+            toast.success("Loaded");
+            _this4.userPosts = res;
+            _this4.isLoaded = true;
+            _this4.countPosts = _this4.userPosts.length;
+          }
         }
       });
     },
@@ -21457,7 +21499,7 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
         credentials: 'same-origin',
         // include, *same-origin, omit
         headers: {
-          authorization: localStorage.getItem('jwt') // 'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization: "bearer " + localStorage.getItem('jwt') // 'Content-Type': 'application/x-www-form-urlencoded',
 
         },
         redirect: 'follow',
@@ -21476,6 +21518,12 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
 
           toast.success("User updated");
         } else {
+          if (json.token) {
+            var AuthStore = (0,_auth__WEBPACK_IMPORTED_MODULE_0__.useAuthStore)();
+            AuthStore.rememberJwt(json.token);
+            toast.info("Try again");
+          }
+
           toast.error(json.error);
         }
 
@@ -21504,7 +21552,7 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
         credentials: 'same-origin',
         // include, *same-origin, omit
         headers: {
-          authorization: localStorage.getItem('jwt') // 'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization: "bearer " + localStorage.getItem('jwt') // 'Content-Type': 'application/x-www-form-urlencoded',
 
         },
         redirect: 'follow',
@@ -21523,6 +21571,12 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
 
           toast.success("User avatar updated");
         } else {
+          if (json.token) {
+            var AuthStore = (0,_auth__WEBPACK_IMPORTED_MODULE_0__.useAuthStore)();
+            AuthStore.rememberJwt(json.token);
+            toast.info("Try again");
+          }
+
           toast.error(json.error);
         }
 
@@ -21532,7 +21586,7 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
         toast.error(err);
       });
     },
-    tryUpdateUser: function tryUpdateUser(newFullname, newDescription, image) {
+    tryUpdateUser: function tryUpdateUser(newFullname, newDescription) {
       var _this7 = this;
 
       var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
@@ -21542,51 +21596,67 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
         return false;
       }
 
-      var data = new FormData();
-      data.append('name', newFullname);
-      data.append('description', newDescription);
-      data.append('id', this.user.id);
-      /*
-      data.append("image", image);*/
+      if (newFullname !== undefined && newDescription !== undefined && newDescription !== '' && newFullname !== '') {
+        var data = new FormData();
+        data.append('id', this.user.id);
+        /*
+        data.append("image", image);*/
 
-      console.log('Fetch');
-      fetch('http://127.0.0.1:8000/api/UpdateUser', {
-        method: 'POST',
-        // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors',
-        // no-cors, *cors, same-origin
-        cache: 'no-cache',
-        // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin',
-        // include, *same-origin, omit
-        headers: {
-          authorization: localStorage.getItem('jwt') // 'Content-Type': 'application/x-www-form-urlencoded',
-
-        },
-        redirect: 'follow',
-        // manual, *follow, error
-        referrerPolicy: 'no-referrer',
-        // no-referrer, *client
-        body: data // body data type must match "Content-Type" header
-
-      }).then(function (res) {
-        return res.json();
-      }).then(function (json) {
-        console.log(json);
-
-        if (!json.error) {
-          _this7.updateUser(json);
-
-          toast.success("User updated");
-        } else {
-          toast.error(json.error);
+        if (newFullname !== null && newFullname !== '' && newFullname !== undefined) {
+          data.append('name', newFullname);
         }
 
-        _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/my-profile'); // this.$router.push({ name: 'login', query: { redirect: '/' } })
-      })["catch"](function (err) {
-        toast.error(err); // commit('Updating', false)
-        // dispatch('nullingData')
-      });
+        if (newDescription !== null && newDescription !== '' && newDescription !== undefined) {
+          data.append('description', newDescription);
+        }
+
+        console.log('Fetch');
+        fetch('http://127.0.0.1:8000/api/UpdateUser', {
+          method: 'POST',
+          // *GET, POST, PUT, DELETE, etc.
+          mode: 'cors',
+          // no-cors, *cors, same-origin
+          cache: 'no-cache',
+          // *default, no-cache, reload, force-cache, only-if-cached
+          credentials: 'same-origin',
+          // include, *same-origin, omit
+          headers: {
+            Authorization: "bearer " + localStorage.getItem('jwt') // 'Content-Type': 'application/x-www-form-urlencoded',
+
+          },
+          redirect: 'follow',
+          // manual, *follow, error
+          referrerPolicy: 'no-referrer',
+          // no-referrer, *client
+          body: data // body data type must match "Content-Type" header
+
+        }).then(function (res) {
+          return res.json();
+        }).then(function (json) {
+          console.log(json);
+
+          if (!json.error) {
+            _this7.updateUser(json);
+
+            toast.success("User updated");
+          } else {
+            if (json.token) {
+              var AuthStore = (0,_auth__WEBPACK_IMPORTED_MODULE_0__.useAuthStore)();
+              AuthStore.rememberJwt(json.token);
+              toast.info("Try again");
+            }
+
+            toast.error(json.error);
+          }
+
+          _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/my-profile'); // this.$router.push({ name: 'login', query: { redirect: '/' } })
+        })["catch"](function (err) {
+          toast.error(err); // commit('Updating', false)
+          // dispatch('nullingData')
+        });
+      } else {
+        toast.info("You nothing changed");
+      }
     }
   }
 });

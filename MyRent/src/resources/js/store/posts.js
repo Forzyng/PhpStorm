@@ -3,6 +3,7 @@ import {api} from './api'
 import {useToastStore} from "./toast";
 import {useUserStore} from "./user";
 import router from "../router";
+import {useAuthStore} from "./auth";
 
 export const usePostStore = defineStore('post', {
     state: () => ({
@@ -23,27 +24,53 @@ export const usePostStore = defineStore('post', {
 
         GetCategories()
         {
+            const toast = useToastStore()
             //get-categories
             api.get("/get-categories")
                 .then(res => {
-                    if(res)
-                    {
-                        console.log('getData: ')
-                        console.log(res)
-                        this.Categories = res
-                        this.isLoaded = true;
-                    }
-
+                        if(res.token)
+                        {
+                            const AuthStore = useAuthStore()
+                            AuthStore.rememberJwt(res.token)
+                            toast.info( "Try again" )
+                        }
+                        if(res.error)
+                        {
+                            toast.error(res.error)
+                        }
+                        else {
+                            if (res) {
+                                console.log('getData: ')
+                                console.log(res)
+                                this.Categories = res
+                                this.isLoaded = true;
+                            }
+                        }
 
                 })
         },
         GetSaleTypes()
         {
+            const toast = useToastStore()
             console.log("check before")
             this.isLoaded = false;
             //get-sale-types
             api.get("/get-sale-types")
                 .then(res => {
+
+                    if(res.token)
+                    {
+                        const AuthStore = useAuthStore()
+                        AuthStore.rememberJwt(res.token)
+                        toast.info( "Try again" )
+                    }
+                    if(res.error)
+                    {
+                        toast.error(res.error)
+                    }
+                    else {
+
+
                     if(res)
                     {
                         console.log('getData: ')
@@ -51,69 +78,82 @@ export const usePostStore = defineStore('post', {
                         this.SaleTypes = res
                         this.GetCategories()
                     }
-
+                }
 
                 })
 
         },
         CreatePost(title, body, price, address, size, year, country, city, number_categ, toBeConfirmed, number_sale, image)
         {
-
-                const storeUser = useUserStore()
-                const author_id = storeUser.user.id
                 const toast = useToastStore()
                 const data = new FormData()
-                if(toBeConfirmed !== true)
-                {
-                    data.append('toBeConfirmed', null);
-                }
-                else {
-                    data.append('toBeConfirmed', toBeConfirmed);
-                }
-                data.append('title', title);
-                data.append('body', body);
-                data.append('price', price);
-                data.append('address', address);
-                data.append('size', size);
-                data.append('year', year);
-                data.append('country', country);
-                data.append('city', city);
-                data.append('category_id', number_categ);
-                data.append('author_id', author_id);
-                data.append('sale_type_id', number_sale);
-                data.append('file', image);
 
-            /*    console.log(title)
-            console.log(body)
-
-            console.log(size)
-            console.log(address)
-            console.log(price)
-            console.log(number_categ)
-            console.log(number_sale)*/
+            if(title !== undefined && body !== undefined &&price !== undefined &&address !== undefined &&size !== undefined &&year !== undefined &&country !== undefined &&city !== undefined &&number_categ !== undefined &&toBeConfirmed !== undefined &&number_sale !== undefined &&image !== undefined && image!== null) {
+                if (title !== '' && body !== '' && price !== '' && address !== '' && size !== '' && year !== '' && country !== '' && city !== '' && number_categ !== '' && toBeConfirmed !== '' && number_sale !== '' && image !== '' && image !== null) {
+if(price > 0 && size > 1 && year > 1800)
+{
 
 
-            api.post('/create-post', data)
-                .then(res=> {
-                    console.log(res)
-                    // toast.success( "Loaded" )
-                    if(res)
-                    {
-                        console.log(res)
 
-                        if(!res.error)
-                        {
-                            this.updateUser(res)
-                            toast.success( "Post created" )
-                        }
-                        else {
-                            toast.error( res.error )
-                        }
-                        router.push('/my-profile')
+                    if (toBeConfirmed === true) {
+                        data.append('toBeConfirmed', toBeConfirmed);
                     }
 
-                })
+                    data.append('title', title);
+                    data.append('body', body);
+                    data.append('price', price);
+                    data.append('address', address);
+                    data.append('size', size);
+                    data.append('year', year);
+                    data.append('country', country);
+                    data.append('city', city);
+                    data.append('category_id', number_categ);
+                    data.append('sale_type_id', number_sale);
+                    data.append('file', image);
 
+                    /*    console.log(title)
+                    console.log(body)
+
+                    console.log(size)
+                    console.log(address)
+                    console.log(price)
+                    console.log(number_categ)
+                    console.log(number_sale)*/
+
+
+                    api.post('/create-post', data)
+                        .then(res => {
+                            console.log(res)
+                            // toast.success( "Loaded" )
+                            if (res) {
+                                console.log(res)
+
+                                if (!res.error) {
+                                    toast.success("Post created")
+
+                                } else {
+                                    if (res.token) {
+                                        const AuthStore = useAuthStore()
+                                        AuthStore.rememberJwt(res.token)
+                                        toast.info("Try again")
+                                    }
+                                    toast.error(res.error)
+                                }
+                                router.push('/my-profile')
+                            }
+
+                        })
+}
+else {
+    toast.info("False data")
+}
+                } else {
+                    toast.info("Everything required")
+
+                }
+            }else {
+                toast.info("Everything required")
+            }
               /*  fetch('http://127.0.0.1:8000/api/create-post', {
                     method: 'POST', // *GET, POST, PUT, DELETE, etc.
                     mode: 'cors', // no-cors, *cors, same-origin
@@ -170,8 +210,22 @@ export const usePostStore = defineStore('post', {
                 .then(res=> {
                     console.log(res)
                    // toast.success( "Loaded" )
+                    if(res.token)
+                    {
+                        const AuthStore = useAuthStore()
+                        AuthStore.rememberJwt(res.token)
+                        toast.info( "Try again" )
+                    }
+                    if(res.error)
+                    {
+                        toast.error( res.error )
+                    }
+                    else {
+
+
                         if(res)
                         {
+
                             this.postLast = res
                             this.isLoaded = true
 
@@ -193,6 +247,7 @@ export const usePostStore = defineStore('post', {
                                 this.postLast.image = this.postLast.image.replace(".webp", "-medium.webp");
                             }
                         }
+                }
 
                 })
         },
@@ -211,25 +266,35 @@ export const usePostStore = defineStore('post', {
 
             api.get(url)
                 .then(res => {
-                    if(res)
+                    if(res.token)
                     {
-                        this.total = res.total
-                        console.log('getData: ')
-                        console.log(res.data)
-                        this.posts = this.posts.concat(res.data)
+                        const AuthStore = useAuthStore()
+                        AuthStore.rememberJwt(res.token)
+                        toast.info( "Try again" )
+                    }
+                    if(res.error)
+                    {
+                        toast.error( res.error )
+                    }
+                    else {
+                        if (res) {
+                            this.total = res.total
+                            console.log('getData: ')
+                            console.log(res.data)
+                            this.posts = this.posts.concat(res.data)
 
-                        this.posts.forEach((value, index) => {
-                            if(!value.image.includes("-medium.jpg") && !value.image.includes("-medium.jpeg") && !value.image.includes("-medium.png") && !value.image.includes("-medium.webp"))
-                            {
-                                value.image = value.image.replace(".jpg", "-medium.jpg");
-                                value.image = value.image.replace(".jpeg", "-medium.jpeg");
-                                value.image = value.image.replace(".png", "-medium.png");
-                                value.image = value.image.replace(".webp", "-medium.webp");
-                            }
-                            console.log(value);
-                            console.log(index);
-                        });
-                        this.isLoaded = true;
+                            this.posts.forEach((value, index) => {
+                                if (!value.image.includes("-medium.jpg") && !value.image.includes("-medium.jpeg") && !value.image.includes("-medium.png") && !value.image.includes("-medium.webp")) {
+                                    value.image = value.image.replace(".jpg", "-medium.jpg");
+                                    value.image = value.image.replace(".jpeg", "-medium.jpeg");
+                                    value.image = value.image.replace(".png", "-medium.png");
+                                    value.image = value.image.replace(".webp", "-medium.webp");
+                                }
+                                console.log(value);
+                                console.log(index);
+                            });
+                            this.isLoaded = true;
+                        }
                     }
 
 

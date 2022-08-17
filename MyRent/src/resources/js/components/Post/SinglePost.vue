@@ -64,7 +64,7 @@
                 <div class="grid_4">
                     <div class="box b3">
                         <div class="agent-text ident-bot-1" style="text-align: center" >
-                            <h3>Contact Agent</h3><img v-bind:href="'http://127.0.0.1:8000/users/' + store.postLast.author_id.login" v-bind:src="'/storage/' + store.postLast.author_id.avatar" alt="avatar" class="rounded-circle img-fluid">
+                            <h3><a v-bind:href="'http://127.0.0.1:8000/users/' + store.postLast.author_id.login">Contact Agent</a></h3><img v-bind:href="'http://127.0.0.1:8000/users/' + store.postLast.author_id.login" v-bind:src="'/storage/' + store.postLast.author_id.avatar" alt="avatar" class="rounded-circle img-fluid">
                             <p class="agent-name">{{ store.postLast.author_id.name }}</p>
                             <a class="agent-email-link" v-bind:href="'http://127.0.0.1:8000/users/' + store.postLast.author_id.login" >{{ store.postLast.author_id.email }}</a>
                         </div>

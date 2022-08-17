@@ -7,7 +7,7 @@
         <div class="content"      >
             <div class="container_12">
 
-                <div class="grid_8">
+                <div class="grid_12">
                     <div class="inner-block box b1">
 
                         <section class="slider"  v-if="store.postLast.image">
@@ -37,51 +37,55 @@
 
                             <p v-if="store.postLast.description">{{store.postLast.description }}</p>
 
-                            <div  v-if="store.isUserPost">
-                                <ul class="list-inline m-0">
-                                    <li class="list-inline-item">
-                                        <a style="color: white" href="#"> <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"> Edit</button></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a style="color: white" href="#"> <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete">Delete</button></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div v-else>
-                                <ul class="list-inline m-0">
-                                    <li class="list-inline-item">
-                                        <a href="#">Like</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">Comment</a>
-                                    </li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                 </div>
 
-                <div class="grid_4">
-                    <div class="box b3">
-                        <div class="agent-text ident-bot-1" style="text-align: center" >
-                            <h3>Contact Agent</h3><img v-bind:href="'http://127.0.0.1:8000/users/' + store.postLast.author_id.login" v-bind:src="'/storage/' + store.postLast.author_id.avatar" alt="avatar" class="rounded-circle img-fluid">
-                            <p class="agent-name">{{ store.postLast.author_id.name }}</p>
-                            <a class="agent-email-link" v-bind:href="'http://127.0.0.1:8000/users/' + store.postLast.author_id.login" >{{ store.postLast.author_id.email }}</a>
-                        </div>
-                    </div>
+
 
 
                 </div>
             </div>
         </div>
-    </div>
+
 </template>
 
 <script>
 import LoadingComponent from "../Loading/LoadingComponent";
+import {usePostStore} from "../../store/posts";
+import {useRoute} from "vue-router/dist/vue-router";
 export default {
     name: "RedactPost",
-    components: {LoadingComponent}
+    components: {LoadingComponent},
+    setup() {
+        const store = usePostStore()
+        const route = useRoute()
+        const doGetSaleTypes = function () {
+            console.log('Start Getting: ')
+            store.GetSaleTypes()
+        }
+
+        if(!store.isLoaded || store.isLoaded )
+        {
+            console.log("check")
+            doGetSaleTypes()
+        }
+
+        const dogetPostBySlug = function () {
+            console.log('get')
+            store.getPostBySlug(route.params.slug)
+        }
+
+        if(!store.isLoaded || store.isLoaded )
+        {
+            dogetPostBySlug()
+        }
+
+        return {
+            dogetPostBySlug, doGetSaleTypes, store
+        }
+    }
 }
 </script>
 

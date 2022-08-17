@@ -65,6 +65,7 @@ export const useUserStore = defineStore('user', {
         },
         getMoreUsers(){
 
+            const toast =useToastStore()
             if (this.page * this.per_page > this.total) {
                 this.isCanMore = false
                 return
@@ -76,15 +77,25 @@ export const useUserStore = defineStore('user', {
 
             api.get(url)
                 .then(res => {
-                        if(res)
+                        if(res.token)
                         {
-                            this.total = res.total
-                            console.log('getData: ')
-                            console.log(res.data)
-                            this.users = this.users.concat(res.data)
-                            this.isLoaded = true
+                            const AuthStore = useAuthStore()
+                            AuthStore.rememberJwt(res.token)
+                            toast.info( "Try again" )
                         }
-
+                        if(res.error)
+                        {
+                            toast.error(res.error)
+                        }
+                        else {
+                            if (res) {
+                                this.total = res.total
+                                console.log('getData: ')
+                                console.log(res.data)
+                                this.users = this.users.concat(res.data)
+                                this.isLoaded = true
+                            }
+                        }
                 })
         },
 
@@ -99,20 +110,31 @@ export const useUserStore = defineStore('user', {
             api.post('/get-user-login', data)
                 .then(res=> {
                     console.log(res)
-                        if(res)
+                        if(res.token)
                         {
-                            toast.success( "Loaded" )
-                            console.log(res)
-                            this.userLast = res
-                            //this.isLoaded = true
-
-                            this.getUsersPosts(this.userLast.id)
+                            const AuthStore = useAuthStore()
+                            AuthStore.rememberJwt(res.token)
+                            toast.info( "Try again" )
                         }
+                        if(res.error)
+                        {
+                            toast.error(res.error)
+                        }
+                        else {
+                            if (res) {
+                                toast.success("Loaded")
+                                console.log(res)
+                                this.userLast = res
+                                //this.isLoaded = true
 
+                                this.getUsersPosts(this.userLast.id)
+                            }
+                        }
                 })
         },
         getMyUser()
         {
+            const toast = useToastStore()
             this.countPosts = 0
             this.isLoaded = false
            // const toast = useToastStore()
@@ -125,13 +147,23 @@ export const useUserStore = defineStore('user', {
                     console.log(res)
                     //this.user = res
                     //this.isLoaded = true
-                    if(res)
-                    {
-                        this.forgetUser()
-                        this.updateUser(res);
-                        this.getUsersPosts(this.user.id)
-                    }
-
+                        if(res.token)
+                        {
+                            const AuthStore = useAuthStore()
+                            AuthStore.rememberJwt(res.token)
+                            toast.info( "Try again" )
+                        }
+                        if(res.error)
+                        {
+                            toast.error(res.error)
+                        }
+                        else {
+                            if (res) {
+                                this.forgetUser()
+                                this.updateUser(res);
+                                this.getUsersPosts(this.user.id)
+                            }
+                        }
                 })
         },
         getUsersPosts(user_id)
@@ -145,16 +177,25 @@ export const useUserStore = defineStore('user', {
                 .then(res=> {
                     console.log(res)
 
-                    console.log(res)
-                    if(res)
-                    {
-                        toast.success( "Loaded" )
-                        this.userPosts = res
-                        this.isLoaded = true
-                        this.countPosts = this.userPosts.length
-                    }
+                        if(res.token)
+                        {
+                            const AuthStore = useAuthStore()
+                            AuthStore.rememberJwt(res.token)
+                            toast.info( "Try again" )
+                        }
+                        if(res.error)
+                        {
+                            toast.error(res.error)
+                        }
+                        else {
+                            if (res) {
+                                toast.success("Loaded")
+                                this.userPosts = res
+                                this.isLoaded = true
+                                this.countPosts = this.userPosts.length
+                            }
 
-
+                        }
                 })
         },
 
@@ -196,7 +237,7 @@ export const useUserStore = defineStore('user', {
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
                 credentials: 'same-origin', // include, *same-origin, omit
                 headers: {
-                    authorization: localStorage.getItem('jwt')
+                    Authorization: "bearer " + localStorage.getItem('jwt')
                     // 'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 redirect: 'follow', // manual, *follow, error
@@ -218,6 +259,12 @@ export const useUserStore = defineStore('user', {
                         toast.success( "User updated" )
                     }
                     else {
+                        if(json.token)
+                        {
+                            const AuthStore = useAuthStore()
+                            AuthStore.rememberJwt(json.token)
+                            toast.info( "Try again" )
+                        }
                         toast.error( json.error )
                     }
                     router.push('/my-profile')
@@ -245,7 +292,7 @@ export const useUserStore = defineStore('user', {
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
                 credentials: 'same-origin', // include, *same-origin, omit
                 headers: {
-                    authorization: localStorage.getItem('jwt')
+                    Authorization: "bearer " + localStorage.getItem('jwt')
                     // 'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 redirect: 'follow', // manual, *follow, error
@@ -267,6 +314,13 @@ export const useUserStore = defineStore('user', {
                         toast.success( "User avatar updated" )
                     }
                     else {
+                        if(json.token)
+                        {
+                            const AuthStore = useAuthStore()
+                            AuthStore.rememberJwt(json.token)
+                            toast.info( "Try again" )
+                        }
+
                         toast.error( json.error )
                     }
                     router.push('/my-profile')
@@ -279,19 +333,27 @@ export const useUserStore = defineStore('user', {
                 })
         },
 
-        tryUpdateUser (newFullname, newDescription, image) {
+        tryUpdateUser (newFullname, newDescription) {
             const toast = useToastStore()
             console.log('Try to update')
             if (/\d/.test(newFullname.value)) {
                 return false
             }
 
+            if(newFullname !== undefined && newDescription !== undefined && newDescription !== '' && newFullname !== '')
+            {
             const data = new FormData()
-            data.append('name', newFullname);
-            data.append('description', newDescription);
             data.append('id', this.user.id)/*
             data.append("image", image);*/
+                if(newFullname !== null && newFullname !== '' && newFullname !== undefined)
+                {
+                    data.append('name', newFullname);
+                }
 
+                if(newDescription !== null && newDescription !== '' && newDescription !== undefined)
+                {
+                    data.append('description', newDescription);
+                }
 
             console.log('Fetch')
             fetch('http://127.0.0.1:8000/api/UpdateUser', {
@@ -300,7 +362,7 @@ export const useUserStore = defineStore('user', {
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
                 credentials: 'same-origin', // include, *same-origin, omit
                 headers: {
-                    authorization: localStorage.getItem('jwt')
+                    Authorization: "bearer " + localStorage.getItem('jwt')
                     // 'Content-Type': 'application/x-www-form-urlencoded',
                 },
                 redirect: 'follow', // manual, *follow, error
@@ -321,6 +383,12 @@ export const useUserStore = defineStore('user', {
                         toast.success( "User updated" )
                     }
                     else {
+                        if(json.token)
+                        {
+                            const AuthStore = useAuthStore()
+                            AuthStore.rememberJwt(json.token)
+                            toast.info( "Try again" )
+                        }
                         toast.error( json.error )
                     }
 
@@ -335,7 +403,10 @@ export const useUserStore = defineStore('user', {
                 })
 
         }
-
+            else {
+                toast.info("You nothing changed")
+            }
+        }
 
     }
 

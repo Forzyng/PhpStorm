@@ -98,7 +98,7 @@
                                     <div>
                                         <ul class="list-inline m-0">
                                             <li class="list-inline-item">
-                                                <a style="color: white" href="#"> <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"> Edit</button></a>
+                                                <a style="color: white" v-bind:href="'http://127.0.0.1:8000/post/redact/' + post.slug"> <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"> Edit</button></a>
                                             </li>
                                             <li class="list-inline-item">
                                                 <a style="color: white" href="#"> <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete">Delete</button></a>
