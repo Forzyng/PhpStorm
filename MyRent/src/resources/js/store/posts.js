@@ -88,16 +88,20 @@ export const usePostStore = defineStore('post', {
                 const toast = useToastStore()
                 const data = new FormData()
 
-            if(title !== undefined && body !== undefined &&price !== undefined &&address !== undefined &&size !== undefined &&year !== undefined &&country !== undefined &&city !== undefined &&number_categ !== undefined &&toBeConfirmed !== undefined &&number_sale !== undefined &&image !== undefined && image!== null) {
-                if (title !== '' && body !== '' && price !== '' && address !== '' && size !== '' && year !== '' && country !== '' && city !== '' && number_categ !== '' && toBeConfirmed !== '' && number_sale !== '' && image !== '' && image !== null) {
+            if(title !== undefined && body !== undefined &&price !== undefined &&address !== undefined &&size !== undefined &&year !== undefined &&country !== undefined &&city !== undefined &&number_categ !== undefined  &&number_sale !== undefined &&image !== undefined && image!== null) {
+                if (title !== '' && body !== '' && price !== '' && address !== '' && size !== '' && year !== '' && country !== '' && city !== '' && number_categ !== ''&& number_sale !== '' && image !== '' && image !== null) {
 if(price > 0 && size > 1 && year > 1800)
 {
 
 
 
-                    if (toBeConfirmed === true) {
-                        data.append('toBeConfirmed', toBeConfirmed);
-                    }
+    if(toBeConfirmed)
+    {
+        if (toBeConfirmed === true) {
+            data.append('toBeConfirmed', toBeConfirmed);
+        }
+    }
+
 
                     data.append('title', title);
                     data.append('body', body);
@@ -154,51 +158,90 @@ else {
             }else {
                 toast.info("Everything required")
             }
-              /*  fetch('http://127.0.0.1:8000/api/create-post', {
-                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                    mode: 'cors', // no-cors, *cors, same-origin
-                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                    credentials: 'same-origin', // include, *same-origin, omit
-                    headers: {
-                        authorization: localStorage.getItem('jwt')
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    redirect: 'follow', // manual, *follow, error
-                    referrerPolicy: 'no-referrer', // no-referrer, *client
-                    body: data // body data type must match "Content-Type" header
-                })
-                    .then(res => {
-                        return res.json()
-                    })
-                    .then(json => {
 
-                        console.log(json)
-
-                        if(!json.error)
-                        {
-                            this.updateUser(json)
-                            toast.success( "Post created" )
-                        }
-                        else {
-                            toast.error( json.error )
-                        }
-                        router.push('/my-profile')
-                        // dispatch('nullingData')
-                        // this.$router.push({ name: 'home' })
-                    })
-                    .catch(err => {
-                        toast.error( err )
-
-                    })*/
-
-           /* }else
-            {
-                toast.info("Everything is must be filled")
-            }*/
 
         },
 
-        getPostBySlug(slug)
+        RedactPost( body, price, address, size, year, country, city, number_categ, toBeConfirmed, number_sale, image)
+        {
+            const toast = useToastStore()
+            const data = new FormData()
+
+            if(body !== undefined &&price !== undefined &&address !== undefined &&size !== undefined &&year !== undefined &&country !== undefined &&city !== undefined &&number_categ !== undefined  &&number_sale !== undefined ) {
+                if (body !== '' && price !== '' && address !== '' && size !== '' && year !== '' && country !== '' && city !== '' && number_categ !== '' && number_sale !== '' ) {
+                    if(price > 0 && size > 1 && year > 1800)
+                    {
+
+
+
+                        if(toBeConfirmed)
+                        {
+                            if (toBeConfirmed === true) {
+                                data.append('toBeConfirmed', toBeConfirmed);
+                            }
+                        }
+                        data.append('body', body);
+                        data.append('price', price);
+                        data.append('address', address);
+                        data.append('size', size);
+                        data.append('year', year);
+                        data.append('country', country);
+                        data.append('city', city);
+                        data.append('category_id', number_categ);
+                        data.append('sale_type_id', number_sale);
+                        data.append('post_id', this.postLast.id);
+
+                        if (image) {
+                            data.append('file', image);
+                        }
+
+
+                        /*    console.log(title)
+                        console.log(body)
+
+                        console.log(size)
+                        console.log(address)
+                        console.log(price)
+                        console.log(number_categ)
+                        console.log(number_sale)*/
+
+
+                        api.post('/UpdatePost', data)
+                            .then(res => {
+                                console.log(res)
+                                // toast.success( "Loaded" )
+                                if (res) {
+                                    console.log(res)
+
+                                    if (!res.error) {
+                                        toast.success("Post updated")
+
+                                    } else {
+                                        if (res.token) {
+                                            const AuthStore = useAuthStore()
+                                            AuthStore.rememberJwt(res.token)
+                                            toast.info("Try again")
+                                        }
+                                        toast.error(res.error)
+                                    }
+                                    router.push('/my-profile')
+                                }
+
+                            })
+                    }
+                    else {
+                        toast.info("False data")
+                    }
+                } else {
+                    toast.info("Everything required")
+
+                }
+            }else {
+                toast.info("Everything required")
+            }
+
+        },
+        getPostBySlug(slug, isRedact)
         {
             this.isUserPost = false
             this.isLoaded = false
@@ -231,14 +274,20 @@ else {
 
                             const userStore = useUserStore()
 
-                            if(this.postLast.author_id.id === userStore.user.id)
-                            {
-                                this.isUserPost = true
+                            if(isRedact) {
+                                if (isRedact === true) {
+                                    if (this.postLast.author_id.id === userStore.user.id) {
+                                        this.isUserPost = true
+                                    } else {
+                                        router.push('/home')
+                                    }
+                                }
                             }
                             else {
-                                router.push('/home')
+                                if (this.postLast.author_id.id === userStore.user.id) {
+                                    this.isUserPost = true
+                                }
                             }
-
                             if(!this.postLast.image.includes("-medium.jpg") && !this.postLast.image.includes("-medium.jpeg") && !this.postLast.image.includes("-medium.png") && !this.postLast.image.includes("-medium.webp"))
                             {
                                 this.postLast.image = this.postLast.image.replace(".jpg", "-medium.jpg");
@@ -248,6 +297,39 @@ else {
                             }
                         }
                 }
+
+                })
+        },
+
+
+        DeletePost(id) {
+            const toast = useToastStore()
+            const data = new FormData()
+            data.append('id', id);
+
+            api.post('/DeletePost', data)
+                .then(res=> {
+                    console.log(res)
+                    // toast.success( "Loaded" )
+                    if(res.token)
+                    {
+                        const AuthStore = useAuthStore()
+                        AuthStore.rememberJwt(res.token)
+                        toast.info( "Try again" )
+                    }
+                    if(res.error)
+                    {
+                        toast.error( res.error )
+                    }
+                    else {
+
+
+                        if(res)
+                        {
+                                router.push('/my-profile')
+
+                        }
+                    }
 
                 })
         },
@@ -299,7 +381,11 @@ else {
 
 
                 })
-        }
+        },
 
+        getLatestPosts()
+        {
+
+        }
     }
 })

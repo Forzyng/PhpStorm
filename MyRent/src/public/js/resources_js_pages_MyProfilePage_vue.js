@@ -80,7 +80,11 @@ __webpack_require__.r(__webpack_exports__);
 
     if (!store.isLoaded || store.isLoaded) {
       dogetMyUser();
-    } ////////////////////////////////////////////////////////
+    }
+
+    var doDelete = function doDelete(id) {
+      store.DeletePost(id);
+    }; ////////////////////////////////////////////////////////
 
 
     return {
@@ -92,7 +96,8 @@ __webpack_require__.r(__webpack_exports__);
       UserFullName: UserFullName,
       dogetMyUser: dogetMyUser,
       store: store,
-      CreatePost: CreatePost
+      CreatePost: CreatePost,
+      doDelete: doDelete
     };
   }
 });
@@ -439,24 +444,16 @@ var _hoisted_72 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_73 = [_hoisted_72];
-
-var _hoisted_74 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+var _hoisted_74 = {
   "class": "list-inline-item"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+};
+var _hoisted_75 = {
   style: {
     "color": "white"
   },
   href: "#"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "btn btn-danger btn-sm rounded-0",
-  type: "button",
-  "data-toggle": "tooltip",
-  "data-placement": "top",
-  title: "Delete"
-}, "Delete")])], -1
-/* HOISTED */
-);
-
+};
+var _hoisted_76 = ["onClick"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_LoadingComponent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("LoadingComponent");
 
@@ -547,7 +544,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       href: 'http://127.0.0.1:8000/post/redact/' + post.slug
     }, _hoisted_73, 8
     /* PROPS */
-    , _hoisted_71)]), _hoisted_74])])])])], 8
+    , _hoisted_71)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_74, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_75, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      onClick: function onClick($event) {
+        return $setup.doDelete(post.id);
+      },
+      "class": "btn btn-danger btn-sm rounded-0",
+      type: "button",
+      "data-toggle": "tooltip",
+      "data-placement": "top",
+      title: "Delete"
+    }, "Delete", 8
+    /* PROPS */
+    , _hoisted_76)])])])])])])], 8
     /* PROPS */
     , _hoisted_45)]);
   }), 256

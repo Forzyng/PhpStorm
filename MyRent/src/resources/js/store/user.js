@@ -51,6 +51,39 @@ export const useUserStore = defineStore('user', {
             this.user = null
             localStorage.removeItem('user')
         },
+        DeletePost(id) {
+            const toast = useToastStore()
+            const data = new FormData()
+            data.append('id', id);
+
+            api.post('/DeletePost', data)
+                .then(res=> {
+                    console.log(res)
+                    // toast.success( "Loaded" )
+                    if(res.token)
+                    {
+                        const AuthStore = useAuthStore()
+                        AuthStore.rememberJwt(res.token)
+                        toast.info( "Try again" )
+                    }
+                    if(res.error)
+                    {
+                        toast.error( res.error )
+                    }
+                    else {
+
+
+                        if(res)
+                        {
+                                    this.userPosts = this.userPosts.filter((post) => post.id !== id);
+                            this.countPosts = this.userPosts.length
+                                    //this.posts.splice(this.posts.indexOf(id), 1);
+
+                        }
+                    }
+
+                })
+        },
         GoRedact()
         {
             router.push('/redact-profile')
@@ -332,6 +365,7 @@ export const useUserStore = defineStore('user', {
 
                 })
         },
+
 
         tryUpdateUser (newFullname, newDescription) {
             const toast = useToastStore()

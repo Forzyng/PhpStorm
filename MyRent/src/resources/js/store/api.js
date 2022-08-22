@@ -13,14 +13,11 @@ export const api = {
         // Если он устарел - можно и обновить
         options.headers = {}
         const auth = useAuthStore()
-    /*    if (auth.jwt !== null)
-            options.headers['Authorization'] = 'bearer ' + auth.jwt*/
-
-        if (auth.jwt !== null) {
-            options.headers['Authorization'] = 'Bearer ' + auth.jwt
-            console.log('add jwt')
-            console.log(options)
-            console.log('----------')
+        console.log("check")
+        if (auth.jwt !== null)
+        {
+            options.headers['Authorization'] = 'bearer ' + auth.jwt
+            console.log(auth.jwt)
         }
 
         return new Promise((resolve, reject) => {

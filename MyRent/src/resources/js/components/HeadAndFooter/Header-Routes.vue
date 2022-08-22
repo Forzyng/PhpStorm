@@ -16,7 +16,6 @@
                                     <a href="/agents">Agents/search</a>
                                 </div>
                             </div>
-                            <li><a href="#">Blog</a> </li>
                             <li><a href="/login"  v-if="!store.isAuthenticated">Login Or Register</a> </li>
                             <li><a href="/my-profile"  v-if="store.isAuthenticated">Profile</a> </li>
                             <li><a href="#"  v-if="store.isAuthenticated" @click="UserLogOut">Logout</a> </li>
@@ -37,9 +36,6 @@ export default {
   name: 'Header-Routes',
   setup () {
       const store = useAuthStore()
-      const UserStore = useUserStore()
-      //const UserLogin = UserStore.user.login
-     // const currentAvatarUrl = 'http://127:0.0.1:8000/store/avatars' + store.user.avatar
 
       const UserLogOut = function () {
           console.log('logout')

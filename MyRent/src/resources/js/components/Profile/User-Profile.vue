@@ -101,7 +101,7 @@
                                                 <a style="color: white" v-bind:href="'http://127.0.0.1:8000/post/redact/' + post.slug"> <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"> Edit</button></a>
                                             </li>
                                             <li class="list-inline-item">
-                                                <a style="color: white" href="#"> <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete">Delete</button></a>
+                                                <a style="color: white" href="#"> <button @click="doDelete(post.id)" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete">Delete</button></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -162,10 +162,14 @@ export default {
         {
             dogetMyUser()
         }
+
+        const doDelete = function (id){
+            store.DeletePost(id)
+        }
 ////////////////////////////////////////////////////////
 
         return {
-            GoRedact, UserLogin, UserEmail, UserDescription, UserCreatedAt, UserFullName, dogetMyUser, store, CreatePost
+            GoRedact, UserLogin, UserEmail, UserDescription, UserCreatedAt, UserFullName, dogetMyUser, store, CreatePost, doDelete
         }
     }
 }

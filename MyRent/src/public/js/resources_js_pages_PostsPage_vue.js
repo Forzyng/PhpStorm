@@ -562,11 +562,13 @@ var usePostStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)('post', {
       var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_1__.useToastStore)();
       var data = new FormData();
 
-      if (title !== undefined && body !== undefined && price !== undefined && address !== undefined && size !== undefined && year !== undefined && country !== undefined && city !== undefined && number_categ !== undefined && toBeConfirmed !== undefined && number_sale !== undefined && image !== undefined && image !== null) {
-        if (title !== '' && body !== '' && price !== '' && address !== '' && size !== '' && year !== '' && country !== '' && city !== '' && number_categ !== '' && toBeConfirmed !== '' && number_sale !== '' && image !== '' && image !== null) {
+      if (title !== undefined && body !== undefined && price !== undefined && address !== undefined && size !== undefined && year !== undefined && country !== undefined && city !== undefined && number_categ !== undefined && number_sale !== undefined && image !== undefined && image !== null) {
+        if (title !== '' && body !== '' && price !== '' && address !== '' && size !== '' && year !== '' && country !== '' && city !== '' && number_categ !== '' && number_sale !== '' && image !== '' && image !== null) {
           if (price > 0 && size > 1 && year > 1800) {
-            if (toBeConfirmed === true) {
-              data.append('toBeConfirmed', toBeConfirmed);
+            if (toBeConfirmed) {
+              if (toBeConfirmed === true) {
+                data.append('toBeConfirmed', toBeConfirmed);
+              }
             }
 
             data.append('title', title);
@@ -618,47 +620,75 @@ var usePostStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)('post', {
       } else {
         toast.info("Everything required");
       }
-      /*  fetch('http://127.0.0.1:8000/api/create-post', {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            headers: {
-                authorization: localStorage.getItem('jwt')
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: 'follow', // manual, *follow, error
-            referrerPolicy: 'no-referrer', // no-referrer, *client
-            body: data // body data type must match "Content-Type" header
-        })
-            .then(res => {
-                return res.json()
-            })
-            .then(json => {
-                 console.log(json)
-                 if(!json.error)
-                {
-                    this.updateUser(json)
-                    toast.success( "Post created" )
-                }
-                else {
-                    toast.error( json.error )
-                }
-                router.push('/my-profile')
-                // dispatch('nullingData')
-                // this.$router.push({ name: 'home' })
-            })
-            .catch(err => {
-                toast.error( err )
-             })*/
-
-      /* }else
-       {
-           toast.info("Everything is must be filled")
-       }*/
-
     },
-    getPostBySlug: function getPostBySlug(slug) {
+    RedactPost: function RedactPost(body, price, address, size, year, country, city, number_categ, toBeConfirmed, number_sale, image) {
+      var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_1__.useToastStore)();
+      var data = new FormData();
+
+      if (body !== undefined && price !== undefined && address !== undefined && size !== undefined && year !== undefined && country !== undefined && city !== undefined && number_categ !== undefined && number_sale !== undefined) {
+        if (body !== '' && price !== '' && address !== '' && size !== '' && year !== '' && country !== '' && city !== '' && number_categ !== '' && number_sale !== '') {
+          if (price > 0 && size > 1 && year > 1800) {
+            if (toBeConfirmed) {
+              if (toBeConfirmed === true) {
+                data.append('toBeConfirmed', toBeConfirmed);
+              }
+            }
+
+            data.append('body', body);
+            data.append('price', price);
+            data.append('address', address);
+            data.append('size', size);
+            data.append('year', year);
+            data.append('country', country);
+            data.append('city', city);
+            data.append('category_id', number_categ);
+            data.append('sale_type_id', number_sale);
+            data.append('post_id', this.postLast.id);
+
+            if (image) {
+              data.append('file', image);
+            }
+            /*    console.log(title)
+            console.log(body)
+             console.log(size)
+            console.log(address)
+            console.log(price)
+            console.log(number_categ)
+            console.log(number_sale)*/
+
+
+            _api__WEBPACK_IMPORTED_MODULE_0__.api.post('/UpdatePost', data).then(function (res) {
+              console.log(res); // toast.success( "Loaded" )
+
+              if (res) {
+                console.log(res);
+
+                if (!res.error) {
+                  toast.success("Post updated");
+                } else {
+                  if (res.token) {
+                    var AuthStore = (0,_auth__WEBPACK_IMPORTED_MODULE_4__.useAuthStore)();
+                    AuthStore.rememberJwt(res.token);
+                    toast.info("Try again");
+                  }
+
+                  toast.error(res.error);
+                }
+
+                _router__WEBPACK_IMPORTED_MODULE_3__["default"].push('/my-profile');
+              }
+            });
+          } else {
+            toast.info("False data");
+          }
+        } else {
+          toast.info("Everything required");
+        }
+      } else {
+        toast.info("Everything required");
+      }
+    },
+    getPostBySlug: function getPostBySlug(slug, isRedact) {
       var _this3 = this;
 
       this.isUserPost = false;
@@ -683,10 +713,18 @@ var usePostStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)('post', {
             _this3.isLoaded = true;
             var userStore = (0,_user__WEBPACK_IMPORTED_MODULE_2__.useUserStore)();
 
-            if (_this3.postLast.author_id.id === userStore.user.id) {
-              _this3.isUserPost = true;
+            if (isRedact) {
+              if (isRedact === true) {
+                if (_this3.postLast.author_id.id === userStore.user.id) {
+                  _this3.isUserPost = true;
+                } else {
+                  _router__WEBPACK_IMPORTED_MODULE_3__["default"].push('/home');
+                }
+              }
             } else {
-              _router__WEBPACK_IMPORTED_MODULE_3__["default"].push('/home');
+              if (_this3.postLast.author_id.id === userStore.user.id) {
+                _this3.isUserPost = true;
+              }
             }
 
             if (!_this3.postLast.image.includes("-medium.jpg") && !_this3.postLast.image.includes("-medium.jpeg") && !_this3.postLast.image.includes("-medium.png") && !_this3.postLast.image.includes("-medium.webp")) {
@@ -695,6 +733,28 @@ var usePostStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)('post', {
               _this3.postLast.image = _this3.postLast.image.replace(".png", "-medium.png");
               _this3.postLast.image = _this3.postLast.image.replace(".webp", "-medium.webp");
             }
+          }
+        }
+      });
+    },
+    DeletePost: function DeletePost(id) {
+      var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_1__.useToastStore)();
+      var data = new FormData();
+      data.append('id', id);
+      _api__WEBPACK_IMPORTED_MODULE_0__.api.post('/DeletePost', data).then(function (res) {
+        console.log(res); // toast.success( "Loaded" )
+
+        if (res.token) {
+          var AuthStore = (0,_auth__WEBPACK_IMPORTED_MODULE_4__.useAuthStore)();
+          AuthStore.rememberJwt(res.token);
+          toast.info("Try again");
+        }
+
+        if (res.error) {
+          toast.error(res.error);
+        } else {
+          if (res) {
+            _router__WEBPACK_IMPORTED_MODULE_3__["default"].push('/my-profile');
           }
         }
       });
@@ -746,7 +806,8 @@ var usePostStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)('post', {
           }
         }
       });
-    }
+    },
+    getLatestPosts: function getLatestPosts() {}
   }
 });
 

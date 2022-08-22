@@ -1,8 +1,5 @@
 <template>
-
-
-
-    <div class="main_bg">
+    <div class="main_bg" v-else>
         <div class="content page1" style="background: #e5e5e5;">
             <latest-properties></latest-properties>
             <div class="clear"></div>
@@ -13,9 +10,6 @@
            <how-we-works></how-we-works>
         </div>
     </div>
-
-
-
 </template>
 
 <script>
@@ -26,25 +20,11 @@ import LatestProperties from "../components/Home/LatestProperties";
 import HomeAbout from "../components/Home/HomeAbout";
 import FeaturedProperties from "../components/Home/FeaturedProperties";
 import HowWeWorks from "../components/Home/HowWeWorks";
+import LoadingComponent from "../components/Loading/LoadingComponent";
 
 export default {
     name: "PageHome",
-    components: {HowWeWorks, FeaturedProperties, HomeAbout, LatestProperties},
-    setup () {
-        const store = useAuthStore()
-        const UserStore = useUserStore()
-        //const UserLogin = UserStore.user.login
-        // const currentAvatarUrl = 'http://127:0.0.1:8000/store/avatars' + store.user.avatar
-
-        const UserLogOut = function () {
-            console.log('logout')
-            store.UserLogout()
-        }
-
-        return {
-            store, UserLogOut, //UserLogin
-        }
-    }
+    components: {HowWeWorks, FeaturedProperties, HomeAbout, LatestProperties}
 }
 </script>
 

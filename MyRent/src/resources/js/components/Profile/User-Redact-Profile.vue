@@ -37,12 +37,14 @@
         </div>
       </div>
     </div>
+      <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" @click="DeleteUser" >Delete User</button></div>
   </div>
 </template>
 
 <script>
 import {ref} from "vue";
 import {useUserStore} from "../../store/user";
+import {useAuthStore} from "../../store/auth";
 export default {
   name: 'User-Redact-Profile',
   setup () {
@@ -66,41 +68,18 @@ export default {
           //Upload to server
           store.UpdateAvatar(file.value.files[0])
       }
-      /*   let data = new FormData()
-            let imageFile = document.getElementById('imageFile');
-            let input = document.querySelector('input[type="file"]')
-            data.append("image", input.files[0]);
-            console.log('Send')
-            console.log(data)
-            fetch('http://127.0.0.1:8000/api/UpdateUserPrivacy', {
-                    method: 'POST',
-                    headers: {
-                        // 'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
-                        // 'Content-Type': 'multipart/form-data',
-                    },
-                    body: data
-                }
-            )
-                .then(res=> {
-                    console.log(res)
-                    return res.json()
-                })
-                .then(txt => {
-                    console.log(txt)
-                })
-                .catch(err => {
-                    console.log('Error')
-                    console.log(err)
-                })*/
-
+    
+      const DeleteUser = function() {
+          const authStore = useAuthStore()
+          authStore.DeleteUser()
+      }
 
       const UpdatePolicyUser = function () {
           console.log('Start Updating Policy: ')
           store.apiTryUpdatePolicyUser(UserPassword.value, UserPasswordConfirm.value)
       }
     return {
-        store, UserFullName, UserDescription, UserPassword, UserPasswordConfirm, saveUser, UpdatePolicyUser, handleFileUpload, file
+        store, UserFullName, UserDescription, UserPassword, UserPasswordConfirm, saveUser, UpdatePolicyUser, handleFileUpload, file, DeleteUser
     }
   }
 }

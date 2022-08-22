@@ -20438,8 +20438,6 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Header-Routes',
   setup: function setup() {
     var store = (0,_store_auth__WEBPACK_IMPORTED_MODULE_0__.useAuthStore)();
-    var UserStore = (0,_store_user__WEBPACK_IMPORTED_MODULE_1__.useUserStore)(); //const UserLogin = UserStore.user.login
-    // const currentAvatarUrl = 'http://127:0.0.1:8000/store/avatars' + store.user.avatar
 
     var UserLogOut = function UserLogOut() {
       console.log('logout');
@@ -20551,25 +20549,16 @@ var _hoisted_7 = {
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<button class=\"dropbtn\" data-v-16aefdf2>Properties</button><div class=\"dropdown-content\" data-v-16aefdf2><a href=\"/about\" data-v-16aefdf2>About Us</a><a href=\"/posts\" data-v-16aefdf2>Houses/search</a><a href=\"/agents\" data-v-16aefdf2>Agents/search</a></div>", 2);
 
 var _hoisted_10 = [_hoisted_8];
-
-var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, "Blog")], -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_12 = {
+var _hoisted_11 = {
   key: 0,
   href: "/login"
 };
-var _hoisted_13 = {
+var _hoisted_12 = {
   key: 0,
   href: "/my-profile"
 };
 
-var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "clear"
   }, null, -1
@@ -20578,13 +20567,13 @@ var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
 });
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_5, [_hoisted_6, $setup.store.isAuthenticated ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, _hoisted_10)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [!$setup.store.isAuthenticated ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", _hoisted_12, "Login Or Register")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [$setup.store.isAuthenticated ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", _hoisted_13, "Profile")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [$setup.store.isAuthenticated ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_5, [_hoisted_6, $setup.store.isAuthenticated ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, _hoisted_10)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [!$setup.store.isAuthenticated ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", _hoisted_11, "Login Or Register")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [$setup.store.isAuthenticated ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", _hoisted_12, "Profile")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [$setup.store.isAuthenticated ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", {
     key: 0,
     href: "#",
     onClick: _cache[0] || (_cache[0] = function () {
       return $setup.UserLogOut && $setup.UserLogOut.apply($setup, arguments);
     })
-  }, "Logout")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), _hoisted_14])])])]);
+  }, "Logout")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), _hoisted_13])])])]);
 }
 
 /***/ }),
@@ -20868,14 +20857,11 @@ var api = {
     // Если он устарел - можно и обновить
     options.headers = {};
     var auth = (0,_auth__WEBPACK_IMPORTED_MODULE_1__.useAuthStore)();
-    /*    if (auth.jwt !== null)
-            options.headers['Authorization'] = 'bearer ' + auth.jwt*/
+    console.log("check");
 
     if (auth.jwt !== null) {
-      options.headers['Authorization'] = 'Bearer ' + auth.jwt;
-      console.log('add jwt');
-      console.log(options);
-      console.log('----------');
+      options.headers['Authorization'] = 'bearer ' + auth.jwt;
+      console.log(auth.jwt);
     }
 
     return new Promise(function (resolve, reject) {
@@ -21016,6 +21002,33 @@ var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('auth', {
     }
   },
   actions: {
+    DeleteUser: function DeleteUser() {
+      var _this = this;
+
+      var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_1__.useToastStore)();
+      var userStore = (0,_user__WEBPACK_IMPORTED_MODULE_3__.useUserStore)();
+      var data = new FormData();
+      data.append('id', userStore.user.id);
+      _api__WEBPACK_IMPORTED_MODULE_0__.api.post('/DeleteUser', data).then(function (res) {
+        console.log(res); // toast.success( "Loaded" )
+
+        if (res.token) {
+          var AuthStore = useAuthStore();
+          AuthStore.rememberJwt(res.token);
+          toast.info("Try again");
+        }
+
+        if (res.error) {
+          toast.error(res.error);
+        } else {
+          if (res) {
+            _this.UserLogout();
+
+            _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/login');
+          }
+        }
+      });
+    },
     UserLogout: function UserLogout() {
       this.forgetJwt();
       var curUser = (0,_user__WEBPACK_IMPORTED_MODULE_3__.useUserStore)();
@@ -21025,7 +21038,7 @@ var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('auth', {
       _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/login');
     },
     tryLogin: function tryLogin(email, password) {
-      var _this = this;
+      var _this2 = this;
 
       var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_1__.useToastStore)();
       console.log('Try to login');
@@ -21084,9 +21097,9 @@ var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('auth', {
       }).then(function (json) {
         console.log(json);
         toast.success("User authorized");
-        _this.Sending = false;
+        _this2.Sending = false;
 
-        _this.rememberJwt(json.authorisation.token);
+        _this2.rememberJwt(json.authorisation.token);
 
         var curUser = (0,_user__WEBPACK_IMPORTED_MODULE_3__.useUserStore)();
         curUser.updateUser(json.user);
@@ -21096,11 +21109,11 @@ var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('auth', {
         _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/my-profile');
       })["catch"](function (err) {
         toast.error(err);
-        _this.Sending = false;
+        _this2.Sending = false;
       }); //this.Sending = false
     },
     tryRegister: function tryRegister(email, login, password, password_confirmation, registerCheck) {
-      var _this2 = this;
+      var _this3 = this;
 
       var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_1__.useToastStore)();
       console.log('Try create');
@@ -21153,7 +21166,7 @@ var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('auth', {
         toast.success("User created");
 
         if (json.authorisation.token) {
-          _this2.rememberJwt(json.authorisation.token);
+          _this3.rememberJwt(json.authorisation.token);
 
           var curUser = (0,_user__WEBPACK_IMPORTED_MODULE_3__.useUserStore)();
           curUser.updateUser(json.user);
@@ -21162,11 +21175,11 @@ var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('auth', {
           _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/my-profile');
         }
 
-        _this2.Sending = false; // this.$router.push({ name: 'home' })
+        _this3.Sending = false; // this.$router.push({ name: 'home' })
         // TODO  уйти на другой маршрут, сообщить что все хорошо
       })["catch"](function (err) {
         toast.error(err);
-        _this2.Sending = false;
+        _this3.Sending = false;
       });
       /*api.post('/auth/register', data)
           .then(res=> {
@@ -21331,6 +21344,33 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
       this.user = null;
       localStorage.removeItem('user');
     },
+    DeletePost: function DeletePost(id) {
+      var _this = this;
+
+      var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
+      var data = new FormData();
+      data.append('id', id);
+      _api__WEBPACK_IMPORTED_MODULE_2__.api.post('/DeletePost', data).then(function (res) {
+        console.log(res); // toast.success( "Loaded" )
+
+        if (res.token) {
+          var AuthStore = (0,_auth__WEBPACK_IMPORTED_MODULE_0__.useAuthStore)();
+          AuthStore.rememberJwt(res.token);
+          toast.info("Try again");
+        }
+
+        if (res.error) {
+          toast.error(res.error);
+        } else {
+          if (res) {
+            _this.userPosts = _this.userPosts.filter(function (post) {
+              return post.id !== id;
+            });
+            _this.countPosts = _this.userPosts.length; //this.posts.splice(this.posts.indexOf(id), 1);
+          }
+        }
+      });
+    },
     GoRedact: function GoRedact() {
       _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/redact-profile');
     },
@@ -21341,7 +21381,7 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
       _router__WEBPACK_IMPORTED_MODULE_1__["default"].push('/create-post');
     },
     getMoreUsers: function getMoreUsers() {
-      var _this = this;
+      var _this2 = this;
 
       var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
 
@@ -21365,17 +21405,17 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
           toast.error(res.error);
         } else {
           if (res) {
-            _this.total = res.total;
+            _this2.total = res.total;
             console.log('getData: ');
             console.log(res.data);
-            _this.users = _this.users.concat(res.data);
-            _this.isLoaded = true;
+            _this2.users = _this2.users.concat(res.data);
+            _this2.isLoaded = true;
           }
         }
       });
     },
     getUserByLogin: function getUserByLogin(login) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.countPosts = 0;
       this.isLoaded = false;
@@ -21397,15 +21437,15 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
           if (res) {
             toast.success("Loaded");
             console.log(res);
-            _this2.userLast = res; //this.isLoaded = true
+            _this3.userLast = res; //this.isLoaded = true
 
-            _this2.getUsersPosts(_this2.userLast.id);
+            _this3.getUsersPosts(_this3.userLast.id);
           }
         }
       });
     },
     getMyUser: function getMyUser() {
-      var _this3 = this;
+      var _this4 = this;
 
       var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
       this.countPosts = 0;
@@ -21428,17 +21468,17 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
           toast.error(res.error);
         } else {
           if (res) {
-            _this3.forgetUser();
+            _this4.forgetUser();
 
-            _this3.updateUser(res);
+            _this4.updateUser(res);
 
-            _this3.getUsersPosts(_this3.user.id);
+            _this4.getUsersPosts(_this4.user.id);
           }
         }
       });
     },
     getUsersPosts: function getUsersPosts(user_id) {
-      var _this4 = this;
+      var _this5 = this;
 
       this.isLoaded = false;
       var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
@@ -21458,15 +21498,15 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
         } else {
           if (res) {
             toast.success("Loaded");
-            _this4.userPosts = res;
-            _this4.isLoaded = true;
-            _this4.countPosts = _this4.userPosts.length;
+            _this5.userPosts = res;
+            _this5.isLoaded = true;
+            _this5.countPosts = _this5.userPosts.length;
           }
         }
       });
     },
     apiTryUpdatePolicyUser: function apiTryUpdatePolicyUser(newPassword, newPasswordConfirm) {
-      var _this5 = this;
+      var _this6 = this;
 
       var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
       console.log('Try to update');
@@ -21514,7 +21554,7 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
         console.log(json);
 
         if (!json.error) {
-          _this5.updateUser(json);
+          _this6.updateUser(json);
 
           toast.success("User updated");
         } else {
@@ -21534,7 +21574,7 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
       });
     },
     UpdateAvatar: function UpdateAvatar(image) {
-      var _this6 = this;
+      var _this7 = this;
 
       var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
       console.log('Try to update');
@@ -21567,7 +21607,7 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
         console.log(json);
 
         if (!json.error) {
-          _this6.updateUser(json);
+          _this7.updateUser(json);
 
           toast.success("User avatar updated");
         } else {
@@ -21587,7 +21627,7 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
       });
     },
     tryUpdateUser: function tryUpdateUser(newFullname, newDescription) {
-      var _this7 = this;
+      var _this8 = this;
 
       var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_3__.useToastStore)();
       console.log('Try to update');
@@ -21636,7 +21676,7 @@ var useUserStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('user', {
           console.log(json);
 
           if (!json.error) {
-            _this7.updateUser(json);
+            _this8.updateUser(json);
 
             toast.success("User updated");
           } else {

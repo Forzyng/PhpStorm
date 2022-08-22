@@ -37,20 +37,16 @@
                                 <li><span>Country:</span><a><input v-model="country" id="Country" type="text" placeholder="Country" /></a></li>
                                 <li><span>City:</span><a><input v-model="city" id="City" type="text" placeholder="City" /></a></li>
                             </ul>
-<!--                            <input v-model="title" id="Title" type="text" placeholder="Title" />
-                            <input v-model="price" id="Price" type="number" placeholder="Price" />
-                            <input v-model="number_categ" id="Category" type="text" placeholder="Category" />
-                            <input v-model="number_sale" id="SaleType" type="text" placeholder="Sale Type" />
-                            <input v-model="size" id="Size" type="text" placeholder="Size" />
-                            <input v-model="address" id="Address" type="text" placeholder="Address" />
-                            <input v-model="year" id="Year" type="text" placeholder="Year" />
-                            <input v-model="country" id="Country" type="text" placeholder="Country" />
-                            <input v-model="city" id="City" type="text" placeholder="City" />-->
+
                             <h2>Property Description</h2>
 
                             <p><textarea type="text" v-model="body" placeholder="Body" style="resize: none; width: 900px; margin-bottom: 7px;" maxlength="5000" id="form10" class="md-textarea form-control" rows="3"></textarea></p>
 
-                            <p><input v-model="toBeConfirmed" id="CheckAdm" type="text" placeholder="Check By administration?" /></p>
+                            <p><input v-model="toBeConfirmed" id="CheckAdm" type="checkbox"/></p>
+
+                            <label class="form-check-label mb-3" for="CheckAdm">
+                                Check By administration?
+                            </label>
 
                             <div class="d-flex justify-content-center mb-1">
                                 <button style="border-radius: 8px; border: 1px solid #b2b2b2" type="button" class="btn btn-outline-primary ms-1" id="Redact" @click="tryCreatePost">Create Post</button>

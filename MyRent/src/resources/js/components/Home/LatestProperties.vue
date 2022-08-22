@@ -1,5 +1,9 @@
 <template>
-    <div class="container_12" style="background: #e5e5e5;">
+<!--    <div v-if="!store.isLoaded">
+        &lt;!&ndash; here put a spinner or whatever you want to indicate that a request is in progress &ndash;&gt;
+        <LoadingComponent></LoadingComponent>
+    </div>-->
+    <div class="container_12" style="background: #e5e5e5;" >
         <div class="grid_12 call-top" >
 
         </div>
@@ -57,8 +61,10 @@
 </template>
 
 <script>
+import LoadingComponent from "../Loading/LoadingComponent";
 export default {
-    name: "LatestProperties"
+    name: "LatestProperties",
+    components: {LoadingComponent}
 }
 </script>
 

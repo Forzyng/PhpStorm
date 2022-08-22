@@ -14,6 +14,41 @@ export const useAuthStore = defineStore('auth', {
         isAuthenticated: state => state.jwt!==null
     },
     actions: {
+        DeleteUser()
+        {
+            const toast = useToastStore()
+            const userStore = useUserStore()
+            const data = new FormData()
+            data.append('id', userStore.user.id);
+
+            api.post('/DeleteUser', data)
+                .then(res=> {
+                    console.log(res)
+                    // toast.success( "Loaded" )
+                    if(res.token)
+                    {
+                        const AuthStore = useAuthStore()
+                        AuthStore.rememberJwt(res.token)
+                        toast.info( "Try again" )
+                    }
+                    if(res.error)
+                    {
+                        toast.error( res.error )
+                    }
+                    else {
+
+
+                        if(res)
+                        {
+                            this.UserLogout();
+                            router.push('/login')
+
+                        }
+                    }
+
+                })
+        },
+
         UserLogout () {
             this.forgetJwt();
             const curUser = useUserStore();

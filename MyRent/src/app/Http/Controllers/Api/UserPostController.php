@@ -8,8 +8,10 @@ use App\Models\SaleType;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Mockery\Exception;
 use TCG\Voyager\Models\Category;
@@ -22,6 +24,9 @@ class UserPostController extends Controller
 
     public function DeleteUser(Request $request)
     {
+        try {
+
+
         $token = JWTAuth::getToken();
         $user = JWTAuth::toUser($token);
         if(!$user)
@@ -30,20 +35,49 @@ class UserPostController extends Controller
                 'error' => 'Please Logout and Login'
             ]);
         }
-        if(\App\Models\User::where('id', $request->id)->get()->first() === null)
+        if(\App\Models\User::where('id', $user->id)->get()->first() === null)
         {
             return response()->json([
                 'error' => 'This user doesn`t exist'
             ]);
         }
-        \App\Models\User::where('id', $request->id)->delete();
+
+        if($user->id !== (int)$request->id)
+        {
+            return response()->json([
+                'error' => 'Invalid data',
+                'user_id' => $user->id,
+                'req_id' => $request->id,
+            ]);
+        }
+            $posts = \App\Models\Post::where('author_id', '=', $user->id )->get(); //
+            foreach ($posts as $post)
+                {
+                    $this->DeletePostImages($post->image);
+                }
+            DB::table('posts')->where('author_id', '=', $user->id )->delete();
+            $imagePath = public_path('storage/'. $user->avatar);
+            if(File::exists($imagePath)){
+                //unlink($imagePath);
+                File::delete($imagePath);
+            }
+        \App\Models\User::where('id', $user->id)->delete();
+
         return response()->json([
-            'status' => 'Deleted'
+            'status' => 'Deleted User'
         ]);
+        }catch (\Exception $e) {
+            return response()->json([
+                'error' => $e->getMessage()
+            ]);
+        }
     }
 
     public function DeletePost(Request $request)
     {
+        try {
+
+
         $token = JWTAuth::getToken();
         $user = JWTAuth::toUser($token);
         if(!$user)
@@ -52,25 +86,41 @@ class UserPostController extends Controller
                 'error' => 'Please Logout and Login'
             ]);
         }
-        $post = \App\Models\Post::where('id', $user->id)->get()->first();
+        $post = \App\Models\Post::where('id', $request->id)->get()->first();
         if($post === null)
         {
             return response()->json([
                 'error' => 'This post doesn`t exist'
             ]);
         }
+        if($post->author_id !== $user->id)
+        {
+            return response()->json([
+                'error' => 'This post not yours'
+            ]);
+        }
+
 
         $this->DeletePostImages($post->image);
-        \App\Models\Post::where('id', $user->id)->delete();
+        \App\Models\Post::where('id', $request->id)->delete();
         return response()->json([
             'status' => 'Deleted'
         ]);
+        }catch (\Exception $e) {
+            return response()->json([
+                'error' => $e->getMessage()
+            ]);
+        }
     }
 
     public function DeletePostImages($image)
     {
-        $imagePathSmall =  str_replace(".webp", "-small.webp", $image);
-        $imagePathMedium =   str_replace(".webp", "-medium.webp", $image);
+        $imageSmall = public_path('storage/'. $image);
+        $imagePathSmall =  str_replace(".webp", "-small.webp", $imageSmall);
+
+        $imageMedium = public_path('storage/'. $image);
+        $imagePathMedium = str_replace(".webp", "-medium.webp", $imageMedium);
+
         $imagePath = public_path('storage/'. $image);
         if(File::exists($imagePath)){
             //unlink($imagePath);
@@ -211,6 +261,7 @@ class UserPostController extends Controller
 
         if($request->description !== null)
         {
+            if($request->description !== $user->description)
             $user->description = $request->description;
 
             //\App\Models\User::where('id', $user->id)->update(array('description'=>$request->description));
@@ -218,7 +269,18 @@ class UserPostController extends Controller
 
         if($request->name !== null)
         {
-            $user->name = $request->name;
+            if(Str::length($request->name) > 3)
+            {
+                if($request->name !== $user->name)
+                    $user->name = $request->name;
+            }
+            else
+            {
+                return response()->json([
+                    'error' => 'Name must be 3 more symbols'
+                ]);
+            }
+
             //\App\Models\User::where('id', $user->id)->update(array('name'=>$request->name));
         }
 
@@ -286,7 +348,15 @@ class UserPostController extends Controller
         }
         if($request->password !== null)
         {
-            \App\Models\User::where('id', $user->id)->update(array('password'=>bcrypt($request->password)));
+            if(Str::length($request->password) > 6)
+            {
+                \App\Models\User::where('id', $user->id)->update(array('password'=>bcrypt($request->password)));
+            }
+            else{
+                return response()->json([
+                    'error' => "Min 6 symbols password"
+                ]);
+            }
         }
 
         return \App\Models\User::where('id', $user->id)->get()->first();
@@ -411,12 +481,25 @@ $post = \App\Models\Post::where('id', $request->post_id)->get()->first();
             }
             if($request->size !== null)
             {
-                $post->size = $request->size;
+                if($request->size > 0) {
+                    $post->size = $request->size;
+                }
+                else{
+                    return response()->json([
+                        'error' => 'Unavailable Size '
+                    ]);
+                }
                 //\App\Models\Post::where('id', $request->post_id)->update(array('size'=>$request->size));
             }
             if($request->year !== null)
             {
-                $post->year = $request->year;
+                if($request->year > 1800)
+                {
+                    $post->year = $request->year;
+                }
+                else{
+                    $post->year =  $year = date("Y");
+                }
                 //\App\Models\Post::where('id', $request->post_id)->update(array('year'=>$request->year));
             }
             if($request->country !== null)
@@ -431,7 +514,15 @@ $post = \App\Models\Post::where('id', $request->post_id)->get()->first();
             }
             if($request->price !== null)
             {
-                $post->price = $request->price;
+                if($request->price > 0) {
+                    $post->price = $request->price;
+                }
+                else{
+                    return response()->json([
+                        'error' => 'Unavailable Price '
+                    ]);
+                }
+
                 //\App\Models\Post::where('id', $request->post_id)->update(array('price'=>$request->price));
             }
             if($request->category_id !== null)
@@ -530,6 +621,64 @@ $post = \App\Models\Post::where('id', $request->post_id)->get()->first();
 
             }
 
+            if($request->body === null)
+            {
+                return response()->json([
+                    'error' => 'Unavailable Body '
+                ]);
+            }
+            if($request->address === null)
+            {
+                return response()->json([
+                    'error' => 'Unavailable Address '
+                ]);
+            }
+            if($request->size === null)
+            {
+                if($request->size <= 0) {
+                    return response()->json([
+                        'error' => 'Unavailable Size '
+                    ]);
+                }
+
+                return response()->json([
+                    'error' => 'Unavailable Size '
+                ]);
+                //\App\Models\Post::where('id', $request->post_id)->update(array('size'=>$request->size));
+            }
+            if($request->year === null)
+            {
+                if($request->year < 1800)
+                {
+                    return response()->json([
+                        'error' => 'Unavailable Year '
+                    ]);
+                }
+                //\App\Models\Post::where('id', $request->post_id)->update(array('year'=>$request->year));
+            }
+            if($request->country === null)
+            {
+                return response()->json([
+                    'error' => 'Unavailable Country '
+                ]);
+                //\App\Models\Post::where('id', $request->post_id)->update(array('country'=>$request->country));
+            }
+            if($request->city === null)
+            {
+                return response()->json([
+                    'error' => 'Unavailable City '
+                ]);
+                //\App\Models\Post::where('id', $request->post_id)->update(array('city'=>$request->city));
+            }
+            if($request->price === null)
+            {
+                if($request->price <= 0) {
+                    return response()->json([
+                        'error' => 'Unavailable Price '
+                    ]);
+                }
+                //\App\Models\Post::where('id', $request->post_id)->update(array('price'=>$request->price));
+            }
             //toDo: Проверка полей
 
             $post = Post::create([

@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83d174fa-2640-46c9-ab65-2510e9f32e41" name="Changes" comment="Posts, users, single user and single post">
-      <change afterPath="$PROJECT_DIR$/src/app/Http/Middleware/JwtMiddleware.php" afterDir="false" />
+    <list default="true" id="83d174fa-2640-46c9-ab65-2510e9f32e41" name="Changes" comment="Edit + delete posts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/Api/UserPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/Api/UserPostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/public/js/resources_js_pages_CreatePostPage_vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_CreatePostPage_vue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/public/js/resources_js_pages_MyProfilePage_vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_MyProfilePage_vue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/js/resources_js_pages_PageHome_vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_PageHome_vue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/public/js/resources_js_pages_PostsPage_vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_PostsPage_vue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/public/js/resources_js_pages_RedactPostPage_vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_RedactPostPage_vue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/js/resources_js_pages_RedactProfile_vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_RedactProfile_vue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/public/js/resources_js_pages_SinglePostPage_vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_SinglePostPage_vue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/js/components/HeadAndFooter/Header-Routes.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/components/HeadAndFooter/Header-Routes.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/js/components/Home/LatestProperties.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/components/Home/LatestProperties.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/js/components/Post/CreatePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/components/Post/CreatePost.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/js/components/Post/RedactPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/components/Post/RedactPost.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/js/components/Post/SinglePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/components/Post/SinglePost.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/js/components/Profile/User-Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/components/Profile/User-Profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/js/components/Profile/User-Redact-Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/components/Profile/User-Redact-Profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/js/pages/PageHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/pages/PageHome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/js/store/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/store/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/js/store/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/store/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/js/store/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/store/posts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/js/store/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/store/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,6 +233,8 @@
       <workItem from="1660583554359" duration="2680000" />
       <workItem from="1660640454287" duration="24754000" />
       <workItem from="1660726868070" duration="18377000" />
+      <workItem from="1660754262317" duration="313000" />
+      <workItem from="1660813808568" duration="15395000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1660231581814</created>
@@ -244,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660666084928</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add post full realise + some changes in User Post Controller">
+      <created>1660754493342</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1660754493342</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +278,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Commit" />
     <MESSAGE value="Posts, users, single user and single post" />
-    <option name="LAST_COMMIT_MESSAGE" value="Posts, users, single user and single post" />
+    <MESSAGE value="Add post full realise + some changes in User Post Controller" />
+    <MESSAGE value="Edit + delete posts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit + delete posts" />
   </component>
 </project>
