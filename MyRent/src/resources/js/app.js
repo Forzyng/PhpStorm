@@ -33,7 +33,7 @@ router.beforeEach((to, from, next) => {
     else next()
 })
 
-
+// else if (to.name === 'SuccessPage' && logedStore.user) next({ name: 'Home' })
 app.use(router)
 // Внедрение Vue в страницу
 app.mount('#app')

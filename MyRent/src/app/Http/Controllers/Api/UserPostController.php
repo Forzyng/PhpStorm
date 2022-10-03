@@ -25,8 +25,6 @@ class UserPostController extends Controller
     public function DeleteUser(Request $request)
     {
         try {
-
-
         $token = JWTAuth::getToken();
         $user = JWTAuth::toUser($token);
         if(!$user)

@@ -50,12 +50,48 @@ export const useAuthStore = defineStore('auth', {
         },
 
         UserLogout () {
-            this.forgetJwt();
-            const curUser = useUserStore();
-            curUser.forgetUser();
-            localStorage.clear()
-            console.log("Storage clear")
-            router.push('/login')
+            const toast = useToastStore()
+            try {
+                this.forgetJwt();
+                const curUser = useUserStore();
+                curUser.forgetUser();
+                localStorage.clear()
+                console.log("Storage clear")
+                toast.success("User logout")
+                router.push('/login')
+            }catch(err) {
+                toast.error(err)
+                this.Sending = false
+            }
+            /*
+            const userStore = useUserStore()
+            const data = new FormData()
+            data.append('user', userStore.user);
+            api.post('/auth/logout', data)
+                .then(res=> {
+                    console.log(res)
+                    if(res.error)
+                    {
+                        toast.error( res.error )
+                    }
+                    else {
+
+
+                        if(res)
+                        {
+                            this.forgetJwt();
+                            const curUser = useUserStore();
+                            curUser.forgetUser();
+                            localStorage.clear()
+                            console.log("Storage clear")
+                            router.push('/login')
+
+                        }
+                    }
+
+                })*/
+
+
         },
         tryLogin (email, password) {
             const toast = useToastStore()
@@ -221,6 +257,69 @@ export const useAuthStore = defineStore('auth', {
         forgetJwt() {
             this.jwt = null
             localStorage.removeItem('jwt')
+        },
+
+
+        tryToResend(email, password)
+        {
+            const toast = useToastStore()
+            console.log('Try to resend')
+            const user = {
+                email: email,
+                password: password
+            }
+            console.log('Validating')
+            this.validateLoginForm(user)
+            if (this.ErrorsValidation) {
+                toast.error(this.ErrorsValidation)
+                return false
+            }
+            this.Sending = true
+            console.log('Fetch')
+            const data = new FormData()
+            data.append('email', email);
+            data.append('password', password);
+
+            fetch('http://127.0.0.1:8000/api/email/verify/resend', {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    //'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *client
+                body: data // body data type must match "Content-Type" header
+            })
+                .then(res => {
+                    return res.json();
+                })
+                .then(json => {
+                    console.log(json)
+                    if(json.error)
+                    {
+                        toast.error( json.error )
+                    }
+                    else {
+
+
+                        if(json)
+                        {
+                            toast.success(json.success)
+
+
+                            router.push('/login')
+                        }
+                    }
+                    this.Sending = false
+
+                })
+                .catch(err => {
+                    toast.error(err)
+                    this.Sending = false
+                })
         }
 
     }

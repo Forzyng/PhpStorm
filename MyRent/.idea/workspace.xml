@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83d174fa-2640-46c9-ab65-2510e9f32e41" name="Changes" comment="Edit + delete posts">
+    <list default="true" id="83d174fa-2640-46c9-ab65-2510e9f32e41" name="Changes" comment="Reset password + send email (not full)">
+      <change afterPath="$PROJECT_DIR$/src/app/Http/Controllers/VerifyEmailController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_ForgotPasswordPage_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_ResetPasswordPage_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_SentEmailPage_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_SuccessPage_vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/components/EmailConfirmation/AlreadyConfirmed.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/components/EmailConfirmation/EmailConfirmed.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/components/EmailConfirmation/SentEmailComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/components/ForgotPassowd/ForgotPasswordComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/components/ForgotPassowd/PasswordChanged.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/components/ForgotPassowd/ResetPassword.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/pages/ForgotPasswordPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/pages/ResetPasswordPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/pages/SentEmailPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/js/pages/SuccessPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MyRent.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MyRent.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/Api/NewPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/Api/NewPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/Api/UserPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/Api/UserPostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Models/SaleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Models/SaleType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/js/resources_js_pages_LogAndRegPage_vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/resources_js_pages_LogAndRegPage_vue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/js/components/Auth/LogAndReg.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/components/Auth/LogAndReg.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/js/pages/PageHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/pages/PageHome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/js/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/js/store/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/js/store/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,16 +179,16 @@
       <path value="$PROJECT_DIR$/src/vendor/dflydev/dot-access-data" />
       <path value="$PROJECT_DIR$/src/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/src/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/src/vendor/cviebrock/eloquent-sluggable" />
+      <path value="$PROJECT_DIR$/src/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/src/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/src/vendor/tcg/voyager" />
       <path value="$PROJECT_DIR$/src/vendor/larapack/doctrine-support" />
+      <path value="$PROJECT_DIR$/src/vendor/arrilot/laravel-widgets" />
       <path value="$PROJECT_DIR$/src/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/src/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/src/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/src/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/src/vendor/tcg/voyager" />
-      <path value="$PROJECT_DIR$/src/vendor/arrilot/laravel-widgets" />
-      <path value="$PROJECT_DIR$/src/vendor/laravel/ui" />
-      <path value="$PROJECT_DIR$/src/vendor/cviebrock/eloquent-sluggable" />
-      <path value="$PROJECT_DIR$/src/vendor/cocur/slugify" />
     </include_path>
   </component>
   <component name="ProjectId" id="2CuFS2xqHRM036ucsbpudlOf4sv" />
@@ -175,6 +207,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Programming/Projects/WebStorm/WSproject/Back&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\Programming\\Setups\\PhpS setups\\PhpStorm 2022.1.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -218,7 +251,30 @@
       <workItem from="1661181594904" duration="1423000" />
       <workItem from="1661359423958" duration="657000" />
       <workItem from="1662658896148" duration="16000" />
-      <workItem from="1662748593652" duration="1046000" />
+      <workItem from="1662748593652" duration="3470000" />
+      <workItem from="1662823148928" duration="1785000" />
+      <workItem from="1662894565404" duration="3670000" />
+      <workItem from="1662976945436" duration="958000" />
+      <workItem from="1662980123143" duration="8204000" />
+      <workItem from="1663068838397" duration="3479000" />
+      <workItem from="1663087327275" duration="66000" />
+      <workItem from="1663150637645" duration="4929000" />
+      <workItem from="1663185409604" duration="3716000" />
+      <workItem from="1663243721886" duration="4922000" />
+      <workItem from="1663265575343" duration="627000" />
+      <workItem from="1663529580075" duration="1112000" />
+      <workItem from="1663689804327" duration="4000" />
+      <workItem from="1663774024490" duration="370000" />
+      <workItem from="1663776302522" duration="815000" />
+      <workItem from="1663841979035" duration="595000" />
+      <workItem from="1663863399520" duration="673000" />
+      <workItem from="1663868445342" duration="636000" />
+      <workItem from="1664052161118" duration="142000" />
+      <workItem from="1664102980992" duration="1000" />
+      <workItem from="1664107486778" duration="308000" />
+      <workItem from="1664292987423" duration="94000" />
+      <workItem from="1664639659914" duration="623000" />
+      <workItem from="1664738110599" duration="559000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1660231581814</created>
@@ -248,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661181684979</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Edit + delete posts">
+      <created>1662750326793</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662750326793</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +334,7 @@
     <MESSAGE value="Posts, users, single user and single post" />
     <MESSAGE value="Add post full realise + some changes in User Post Controller" />
     <MESSAGE value="Edit + delete posts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit + delete posts" />
+    <MESSAGE value="Reset password + send email (not full)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reset password + send email (not full)" />
   </component>
 </project>

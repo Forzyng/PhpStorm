@@ -58,10 +58,31 @@ const routes = [
         component: () => import('../pages/MyProfilePage')
     },
     {
+        path: '/success-operation/:number',
+        name: 'SuccessPage',
+        component: () => import('../pages/SuccessPage')
+    },
+    {
+        path: '/forgot-password',
+        name: 'ForgotPassword',
+        component: () => import('../pages/ForgotPasswordPage')
+    },
+    {
+        path: '/reset-password',
+        name: 'ResetPassword',
+        component: () => import('../pages/ResetPasswordPage')
+    },
+    {
+        path: '/resend-email',
+        name: 'SentEmail',
+        component: () => import('../pages/SentEmailPage')
+    },
+    //http://127.0.0.1:8000/email/verify/already-success
+/*    {
         path: '/email/verify/:user_id/:hash',
         name: 'emailVerify',
         component: () => import('../pages/EmailVerifyPage')
-    },
+    },*/
     {
         path: '/:pathMatch(.*)*',
         name: 'Error404',

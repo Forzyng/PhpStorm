@@ -35,11 +35,13 @@
         <label for="phone" class="visually-hidden">Phone</label>
         <input type="text" name="Phone" class="form-control" id="phone" placeholder="Phone">
     </div>
-    <div class="col-auto">
-        <label for="message" class="visually-hidden">Message</label>
-        <textarea name="Message" class="form-control" id="message">
-         </textarea>
-    </div>
+    <?php
+    \App\Views\Forms\Input::input(
+        "body", "text", "body",
+        ["placeholder" => "Введите body"],
+        $varBug['formData']['body']?? null,
+        $varBug['err']['body'] ?? null);
+    ?>
     <div class="col-auto">
         <button type="submit" class="btn btn-primary mb-3">Послать форму</button>
     </div>

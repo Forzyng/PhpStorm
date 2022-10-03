@@ -60,17 +60,23 @@ class AuthController extends Controller
         }*/
 
         if ($token = JWTAuth::attempt($credentials)) {
-            return response()->json([
-                'status' => 'success',
-                'user' => auth()->user(),
-                'authorisation' => [
-                    'token' => $token,    //$this->createNewToken($token)
-                    'type' => 'bearer',
-                ]
-            ]);
+            if(auth()->user()->hasVerifiedEmail())
+            {
+                return response()->json([
+                    'status' => 'success',
+                    'user' => auth()->user(),
+                    'authorisation' => [
+                        'token' => $token,    //$this->createNewToken($token)
+                        'type' => 'bearer',
+                    ]
+                ]);
+            }else{
+                return response()->json(['error' => 'You need to confirm your email'], 401);
+            }
+
         }
 
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Uncorrect data'], 401);
 
     }
 
@@ -93,10 +99,10 @@ class AuthController extends Controller
             $validator->validated(),
             ['password' => bcrypt($request->password)]
         ));
-        /*if($user)
+        if($user)
         {
             event(new Registered($user));
-        }*/
+        }
         $credentials = $request->only('email', 'password');
         if ($token = JWTAuth::attempt($credentials)) {
             return response()->json([
@@ -123,12 +129,16 @@ class AuthController extends Controller
     /**
      * Log the user out (Invalidate the token).
      */
-    public function logout() {
-        auth()->logout();
-        return response()->json(['message' => 'User successfully signed out']);
+    public function logout(Request $request)
+    {
+        /*$user = Auth::user()->token();
+        $user->revoke();*/
+        return response()->json([
+            'message' => 'Successfully logged out'
+        ]);
     }
 
-    public function email_verify(Request $request)
+ /*   public function email_verify(Request $request)
     {
         $request->validate([
             'user_id' => 'required|int',
@@ -140,7 +150,7 @@ class AuthController extends Controller
 
         $user = Auth::user();
 
-    }
+    }*/
 
 
 

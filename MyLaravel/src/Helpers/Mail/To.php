@@ -38,7 +38,7 @@ class To
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
             $mail->Subject = "Checker";
-            $mail->Body    = "";
+            $mail->Body    = $body;
             $mail->AltBody = $body;
 
             $mail->send();

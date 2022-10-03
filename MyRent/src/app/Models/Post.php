@@ -2,24 +2,36 @@
 
 namespace App\Models;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\SaleType;
 
 class Post extends \TCG\Voyager\Models\Post
 {
     use HasFactory;
-    use Sluggable;
 
     protected $guarded = [];
 
-    public function sluggable(): array
+    protected static function boot()
     {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
+        parent::boot();
+        static::created(function ($post) {
+            $post->slug = $post->generateSlug($post->title);
+            $post->save();
+        });
+    }
+
+    private function generateSlug($name)
+    {
+        if (static::whereSlug($slug = Str::slug($name))->exists()) {
+            $max = static::whereName($name)->latest('id')->skip(1)->value('slug');
+            if (isset($max[-1]) && is_numeric($max[-1])) {
+                return preg_replace_callback('/(\d+)$/', function($mathces) {
+                    return $mathces[1] + 1;
+                }, $max);
+            }
+            return "{$slug}-2";
+        }
+        return $slug;
     }
 
     public function sale_type()

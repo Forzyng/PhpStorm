@@ -20673,7 +20673,8 @@ _router__WEBPACK_IMPORTED_MODULE_6__["default"].beforeEach(function (to, from, n
   });else if (to.name === 'RedactPost' && !logedStore.user) next({
     name: 'Home'
   });else next();
-});
+}); // else if (to.name === 'SuccessPage' && logedStore.user) next({ name: 'Home' })
+
 app.use(_router__WEBPACK_IMPORTED_MODULE_6__["default"]); // Внедрение Vue в страницу
 
 app.mount('#app');
@@ -20804,12 +20805,37 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_js_pages_MyProfilePage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/MyProfilePage */ "./resources/js/pages/MyProfilePage.vue"));
   }
 }, {
-  path: '/email/verify/:user_id/:hash',
-  name: 'emailVerify',
+  path: '/success-operation/:number',
+  name: 'SuccessPage',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ "resources_js_pages_EmailVerifyPage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/EmailVerifyPage */ "./resources/js/pages/EmailVerifyPage.vue"));
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_SuccessPage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/SuccessPage */ "./resources/js/pages/SuccessPage.vue"));
   }
 }, {
+  path: '/forgot-password',
+  name: 'ForgotPassword',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_ForgotPasswordPage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/ForgotPasswordPage */ "./resources/js/pages/ForgotPasswordPage.vue"));
+  }
+}, {
+  path: '/reset-password',
+  name: 'ResetPassword',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_ResetPasswordPage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/ResetPasswordPage */ "./resources/js/pages/ResetPasswordPage.vue"));
+  }
+}, {
+  path: '/resend-email',
+  name: 'SentEmail',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_SentEmailPage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/SentEmailPage */ "./resources/js/pages/SentEmailPage.vue"));
+  }
+}, //http://127.0.0.1:8000/email/verify/already-success
+
+/*    {
+        path: '/email/verify/:user_id/:hash',
+        name: 'emailVerify',
+        component: () => import('../pages/EmailVerifyPage')
+    },*/
+{
   path: '/:pathMatch(.*)*',
   name: 'Error404',
   component: function component() {
@@ -21030,12 +21056,44 @@ var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('auth', {
       });
     },
     UserLogout: function UserLogout() {
-      this.forgetJwt();
-      var curUser = (0,_user__WEBPACK_IMPORTED_MODULE_3__.useUserStore)();
-      curUser.forgetUser();
-      localStorage.clear();
-      console.log("Storage clear");
-      _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/login');
+      var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_1__.useToastStore)();
+
+      try {
+        this.forgetJwt();
+        var curUser = (0,_user__WEBPACK_IMPORTED_MODULE_3__.useUserStore)();
+        curUser.forgetUser();
+        localStorage.clear();
+        console.log("Storage clear");
+        toast.success("User logout");
+        _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/login');
+      } catch (err) {
+        toast.error(err);
+        this.Sending = false;
+      }
+      /*
+      const userStore = useUserStore()
+      const data = new FormData()
+      data.append('user', userStore.user);
+      api.post('/auth/logout', data)
+          .then(res=> {
+              console.log(res)
+              if(res.error)
+              {
+                  toast.error( res.error )
+              }
+              else {
+                    if(res)
+                  {
+                      this.forgetJwt();
+                      const curUser = useUserStore();
+                      curUser.forgetUser();
+                      localStorage.clear()
+                      console.log("Storage clear")
+                      router.push('/login')
+                   }
+              }
+           })*/
+
     },
     tryLogin: function tryLogin(email, password) {
       var _this2 = this;
@@ -21223,6 +21281,66 @@ var useAuthStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)('auth', {
     forgetJwt: function forgetJwt() {
       this.jwt = null;
       localStorage.removeItem('jwt');
+    },
+    tryToResend: function tryToResend(email, password) {
+      var _this4 = this;
+
+      var toast = (0,_toast__WEBPACK_IMPORTED_MODULE_1__.useToastStore)();
+      console.log('Try to resend');
+      var user = {
+        email: email,
+        password: password
+      };
+      console.log('Validating');
+      this.validateLoginForm(user);
+
+      if (this.ErrorsValidation) {
+        toast.error(this.ErrorsValidation);
+        return false;
+      }
+
+      this.Sending = true;
+      console.log('Fetch');
+      var data = new FormData();
+      data.append('email', email);
+      data.append('password', password);
+      fetch('http://127.0.0.1:8000/api/email/verify/resend', {
+        method: 'POST',
+        // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors',
+        // no-cors, *cors, same-origin
+        cache: 'no-cache',
+        // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin',
+        // include, *same-origin, omit
+        headers: {//'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow',
+        // manual, *follow, error
+        referrerPolicy: 'no-referrer',
+        // no-referrer, *client
+        body: data // body data type must match "Content-Type" header
+
+      }).then(function (res) {
+        return res.json();
+      }).then(function (json) {
+        console.log(json);
+
+        if (json.error) {
+          toast.error(json.error);
+        } else {
+          if (json) {
+            toast.success(json.success);
+            _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/login');
+          }
+        }
+
+        _this4.Sending = false;
+      })["catch"](function (err) {
+        toast.error(err);
+        _this4.Sending = false;
+      });
     }
   }
 });
@@ -48335,7 +48453,7 @@ function useRoute() {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_PageHome_vue":1,"resources_js_pages_PageAbout_vue":1,"resources_js_pages_LogAndRegPage_vue":1,"resources_js_pages_RedactProfile_vue":1,"resources_js_pages_PostsPage_vue":1,"resources_js_pages_OneUserPage_vue":1,"resources_js_pages_SinglePostPage_vue":1,"resources_js_pages_RedactPostPage_vue":1,"resources_js_pages_CreatePostPage_vue":1,"resources_js_pages_AgentsPage_vue":1,"resources_js_pages_MyProfilePage_vue":1,"resources_js_pages_EmailVerifyPage_vue":1,"resources_js_pages_PageError404_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_PageHome_vue":1,"resources_js_pages_PageAbout_vue":1,"resources_js_pages_LogAndRegPage_vue":1,"resources_js_pages_RedactProfile_vue":1,"resources_js_pages_PostsPage_vue":1,"resources_js_pages_OneUserPage_vue":1,"resources_js_pages_SinglePostPage_vue":1,"resources_js_pages_RedactPostPage_vue":1,"resources_js_pages_CreatePostPage_vue":1,"resources_js_pages_AgentsPage_vue":1,"resources_js_pages_MyProfilePage_vue":1,"resources_js_pages_SuccessPage_vue":1,"resources_js_pages_ForgotPasswordPage_vue":1,"resources_js_pages_ResetPasswordPage_vue":1,"resources_js_pages_SentEmailPage_vue":1,"resources_js_pages_PageError404_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

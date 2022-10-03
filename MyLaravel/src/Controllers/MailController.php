@@ -41,6 +41,15 @@ class MailController
             $err['name']['var'] = "Имя не передали";
         }
 
+        if(isset($_POST['body'])) {
+            if(strlen($_POST['body']) < 2){
+                $err['body']['len'] = "Body слишком короткое";
+            }
+            // ....
+        } else {
+            $err['body']['var'] = "Body не передали";
+        }
+
         // ...
 
         return $err;
@@ -60,7 +69,7 @@ class MailController
             Render::view("mail/form", $varBug);
         }
 
-        $res = Sender::send($_POST['email'],$_POST['name'], file_get_contents("Template.html"));
+        $res = Sender::send($_POST['email'],$_POST['name'], $_POST['body']);
         print_r($res);
         // Отсылка формы и вывод результатов
 

@@ -155,7 +155,7 @@ var _hoisted_10 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
+    href: "/forgot-password"
   }, "Forgot your password?", -1
   /* HOISTED */
   );
@@ -163,7 +163,7 @@ var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
+    href: "/resend-email"
   }, "Did not get email confirmation?", -1
   /* HOISTED */
   );

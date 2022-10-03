@@ -60,9 +60,10 @@ class NewPasswordController extends Controller
         );
 
         if ($status == Password::PASSWORD_RESET) {
-            return response([
+            /*return response([
                 'message'=> 'Password reset successfully'
-            ]);
+            ]);*/
+            return redirect(env('FRONT_URL') . '/success-operation/2');
         }
 
         return response([

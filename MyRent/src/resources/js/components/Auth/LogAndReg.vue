@@ -21,8 +21,8 @@
                 <h1>Sign in</h1>
                 <input v-model="emailForLogin" id="LoginEmail" type="text" placeholder="Email" />
                 <input v-model="passwordForLogin" id="LoginPassword" type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <a href="#">Did not get email confirmation?</a>
+                <a href="/forgot-password">Forgot your password?</a>
+                <a href="/resend-email">Did not get email confirmation?</a>
                 <button type="button" id="LoginBtn" @click="tryLogin" :disabled=canSendLoginForm>Sign In</button>
             </form>
         </div>

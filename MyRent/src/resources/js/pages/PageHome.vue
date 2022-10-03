@@ -1,5 +1,5 @@
 <template>
-    <div class="main_bg" v-else>
+    <div class="main_bg">
         <div class="content page1" style="background: #e5e5e5;">
             <latest-properties></latest-properties>
             <div class="clear"></div>
